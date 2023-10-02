@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  width: calc(90dvw - 6rem);
+
+  background-color: white;
+
+  font-family: var(--ff-text);
+  font-size: 1.25rem;
+
+  box-shadow: var(--shadow);
+}

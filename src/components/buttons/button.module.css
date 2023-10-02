@@ -24,6 +24,15 @@
   font-weight: 900;
 }
 
+.main_link a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main_link a:visited {
+  color: inherit;
+}
+
 .main_link svg {
   margin: 1%;
   width: 2rem;

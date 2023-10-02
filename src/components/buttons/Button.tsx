@@ -13,10 +13,12 @@ const Button: React.FC<ButtonProps> = ({ onClick, text, Icon, to }) => {
   if (to) {
     // Se a prop "to" estiver presente, renderize um Link do React Router
     return (
-      <Link to={to} className={styles.main_link}>
-        {Icon}
-        {text}
-      </Link>
+      <button className={styles.main_link}>
+        <Link to={to}>
+          {Icon}
+          {text}
+        </Link>
+      </button>
     );
   }
 

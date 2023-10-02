@@ -1,22 +1,29 @@
-import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./components/pages/HomePage";
-import Acomodacoes from "./components/pages/Acomodacoes";
+import {
+  HomePage,
+  Acomodacoes,
+  ComoChegar,
+  MaisFotos,
+} from "./components/pages/Pages";
+import Navigation from "./components/navigation/Navigation";
+import Logo from "./components/logo/logo";
 
 import "./App.css";
-import Navigation from "./components/navigation/Navigation";
 
 function App() {
   return (
-    <>
-      <Navigation />
+    <div className="App">
       <Router>
+        <Navigation />
+        <Logo />
         <Routes>
-          <Route path="/" Component={HomePage} />
-          <Route path="/Acomodacoes" Component={Acomodacoes} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Acomodacoes" element={<Acomodacoes />} />
+          <Route path="/Como_chegar" element={<ComoChegar />} />
+          <Route path="/Mais_fotos" element={<MaisFotos />} />
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 
