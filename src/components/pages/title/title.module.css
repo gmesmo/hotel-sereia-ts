@@ -1,0 +1,20 @@
+#titleWrapper {
+  background-color: var(--destaque);
+
+  width: 100%;
+  text-align: center;
+}
+
+#title {
+  color: white;
+  font-family: var(--ff-destaque);
+  padding: 0.75rem;
+  letter-spacing: 0.15rem;
+  margin: 0;
+
+  background: linear-gradient(135deg, #ccc3 25%, transparent 25%) -40px 0,
+    linear-gradient(225deg, #ccc3 25%, transparent 25%) -40px 0,
+    linear-gradient(315deg, #ccc3 25%, transparent 25%),
+    linear-gradient(45deg, #ccc3 25%, transparent 25%);
+  background-size: 80px 80px;
+}
