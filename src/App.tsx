@@ -10,6 +10,8 @@ import Logo from "./components/logo/logo";
 
 import "./App.css";
 
+const aviso: string = "Retornamos dia 10/10!";
+
 function App() {
   return (
     <div className="App">
@@ -17,10 +19,10 @@ function App() {
         <Navigation />
         <Logo />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/Acomodacoes" element={<Acomodacoes />} />
-          <Route path="/Como_chegar" element={<ComoChegar />} />
-          <Route path="/Mais_fotos" element={<MaisFotos />} />
+          <Route path="/" element={<HomePage aviso={aviso} />} />
+          <Route path="/Acomodacoes" element={<Acomodacoes aviso={aviso} />} />
+          <Route path="/Como_chegar" element={<ComoChegar aviso={aviso} />} />
+          <Route path="/Mais_fotos" element={<MaisFotos aviso={aviso} />} />
         </Routes>
       </Router>
     </div>

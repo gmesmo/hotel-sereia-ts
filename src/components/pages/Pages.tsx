@@ -9,6 +9,9 @@ import { ImWhatsapp } from "react-icons/im";
 import { BsPhoneFill } from "react-icons/bs";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+
 const spanStyle: React.CSSProperties = {
   padding: "20px",
   background: "#efefef44",
@@ -75,7 +78,11 @@ const slideImages = [
   },
 ];
 
-function HomePage() {
+interface PageProps {
+  aviso: string;
+}
+
+function HomePage({ aviso }: PageProps) {
   const Atracoes: string[] = [
     "Belezas naturais",
     "Delicioso café da manhã",
@@ -99,6 +106,8 @@ function HomePage() {
       <div id={styles.titleWrapper}>
         <h2 id={styles.title}>Bem vindo!</h2>
       </div>
+
+      {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
       <div className={styles.innerContent}>
         <section className={styles.inicio}>
           Se ficar no litoral gaúcho já é incrível, imagine o prazer de estar
@@ -185,7 +194,7 @@ interface Apartamento {
   "5pessoas": string;
 }
 
-function Acomodacoes() {
+function Acomodacoes({ aviso }: PageProps) {
   const apartamentosData: Apartamento[] = [
     {
       nome: "Vista Mar / Vista Piscina Simples*",
@@ -227,18 +236,68 @@ function Acomodacoes() {
       "4pessoas": "490,00",
       "5pessoas": " - ",
     },
+    {
+      nome: "Conjugado Vista Piscina Térreo",
+      "1pessoa": " - ",
+      "2pessoas": " - ",
+      "3pessoas": "420,00",
+      "4pessoas": "470,00",
+      "5pessoas": "540,00",
+    },
+    {
+      nome: "Conjugado Vista Mar 1º Térreo, 02 Banheiros com mini cozinha",
+      "1pessoa": " - ",
+      "2pessoas": " - ",
+      "3pessoas": "430,00",
+      "4pessoas": "510,00",
+      "5pessoas": "560,00",
+    },
+    {
+      nome: "Conjugado Vista Serra / Pátio com mini cozinha",
+      "1pessoa": " - ",
+      "2pessoas": "340,00",
+      "3pessoas": "420,00",
+      "4pessoas": "480,00",
+      "5pessoas": " - ",
+    },
   ];
+
+  const apartamentoSemServico: Apartamento[] = [
+    {
+      nome: "Conjugado Vista Mar térreo, 02 banheiro com mini cozinha",
+      "1pessoa": " - ",
+      "2pessoas": " - ",
+      "3pessoas": "320,00",
+      "4pessoas": "350,00",
+      "5pessoas": "390,00",
+    },
+    {
+      nome: "Conjugado Vista Serra/Pátio com mini cozinha",
+      "1pessoa": " - ",
+      "2pessoas": "240,00",
+      "3pessoas": "290,00",
+      "4pessoas": "330,00",
+      "5pessoas": " - ",
+    },
+  ];
+
+  function apClickHandler(url: string) {
+    window.open(url, "_blank", "noreferrer");
+  }
 
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
         <h2 id={styles.title}>Acomodações</h2>
       </div>
+
+      {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
+
       <div className={styles.innerContent}>
         <h3>
           Preços em reais (R$) por apartamento/por noite com café da manhã
         </h3>
-        <table>
+        <table cellSpacing={0}>
           <thead>
             <tr>
               <th>Apartamentos</th>
@@ -250,10 +309,23 @@ function Acomodacoes() {
             </tr>
           </thead>
           <tbody>
-            {apartamentosData.map((ap) => {
+            {apartamentosData.map((ap, index) => {
               return (
-                <tr>
-                  <td>{ap.nome}</td>
+                <tr
+                  className={
+                    index % 2 === 0 ? `${styles.even}` : `${styles.odd}`
+                  }
+                >
+                  <td
+                    className={styles.apNome}
+                    onClick={() =>
+                      apClickHandler(
+                        `https://wa.me/555193383992?text=Olá! Vim pelo site, gostaria de informações sobre o ${ap.nome}`
+                      )
+                    }
+                  >
+                    {ap.nome}
+                  </td>
                   <td>{ap["1pessoa"]}</td>
                   <td>{ap["2pessoas"]}</td>
                   <td>{ap["3pessoas"]}</td>
@@ -264,26 +336,156 @@ function Acomodacoes() {
             })}
           </tbody>
         </table>
+        <span className={styles.observ}>
+          * Apto Simples com ventilador de teto. Demais aptos com
+          ar-condicionado, sendo que nos conjugados o ar-condicionado (12.000
+          Btus) é em apenas um dos quartos e no outro quarto tem ventilador de
+          teto.
+        </span>
+
+        <Line />
+
+        <h3>
+          Preços em reais (R$) no apartamento com mini cozinha/por noite{" "}
+          <span style={{ color: "red" }}>SEM SERVIÇOS**</span>
+        </h3>
+        <table cellSpacing={0}>
+          <thead>
+            <tr>
+              <th>Apartamentos</th>
+              <th>1 Pessoa</th>
+              <th>2 Pessoa</th>
+              <th>3 Pessoa</th>
+              <th>4 Pessoa</th>
+              <th>5 Pessoa</th>
+            </tr>
+          </thead>
+          <tbody>
+            {apartamentoSemServico.map((ap, index) => {
+              return (
+                <tr
+                  className={
+                    index % 2 === 0 ? `${styles.even}` : `${styles.odd}`
+                  }
+                >
+                  <td
+                    className={styles.apNome}
+                    onClick={() =>
+                      apClickHandler(
+                        `https://wa.me/555193383992?text=Olá! Vim pelo site, gostaria de informações sobre o ${ap.nome} - sem serviços`
+                      )
+                    }
+                  >
+                    {ap.nome}
+                  </td>
+                  <td>{ap["1pessoa"]}</td>
+                  <td>{ap["2pessoas"]}</td>
+                  <td>{ap["3pessoas"]}</td>
+                  <td>{ap["4pessoas"]}</td>
+                  <td>{ap["5pessoas"]}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <span className={styles.observ}>
+          * Não inclui café da manhã, roupas de cama e banho e serviço de
+          limpeza diária ** Taxa de limpeza ao final da estadia R$ 100,00
+        </span>
+
+        <Line />
+
+        <table cellSpacing={0}>
+          <thead>
+            <th colSpan={2}>Tarifa para crianças</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Até 03 anos</td>
+              <td>Cortesia - Berço bebê mediante solicitação</td>
+            </tr>
+            <tr className={styles.odd}>
+              <td>04 à 10 anos</td>
+              <td rowSpan={3}>
+                01 Criança desconto de 10% aplicado ao número total de pessoas
+                <br></br>02 Crianças desconto de 15% aplicado ao número total de
+                pessoas <br></br>03 Crianças desconto de 20% aplicado ao número
+                total de pessoas
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <Line />
+
+        <div className={styles.disclaimer}>
+          Taxa de Garagem: R$ 20,00 a diária
+        </div>
       </div>
     </div>
   );
 }
 
-function ComoChegar() {
+function ComoChegar({ aviso }: PageProps) {
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
-        <h1 id={styles.title}>Como chegar</h1>
+        <h2 id={styles.title}>Como chegar</h2>
+      </div>
+
+      {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
+
+      <div className={styles.innerContent}>
+        <div className={styles.split}>
+          <div className="mapouter">
+            <div className="gmap_canvas">
+              <iframe
+                style={{
+                  width: "100%",
+                  height: "450px",
+                  border: "none",
+                }}
+                className="gmap_iframe"
+                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Hotel Sereia Arroio do Sal&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+              ></iframe>
+            </div>
+          </div>
+
+          <div>
+            <p>Para chegar no Hotel Sereia é extremamente simples!</p>
+            <p>
+              Ao entrar em Arroio do Sal pela entrada principal (Av. Assis
+              Brasil) basta segui-la até o fim, na Av. Beira Mar, faça a curva à
+              direita, após isso ficamos na segunda quadra à sua direita.
+            </p>
+
+            <p>
+              Enquanto se encaminhas até nós, deves passar por diversos
+              restaurantes, vale uma anotação para visitá-los depois, e o mais
+              importante, a nossa belíssima praia fica logo à nossa frente!
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function MaisFotos() {
+function MaisFotos({ aviso }: PageProps) {
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
-        <h1 id={styles.title}>Mais fotos</h1>
+        <h2 id={styles.title}>Mais fotos</h2>
+      </div>
+
+      {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
+
+      <div className={styles.innerContent}>
+        <PhotoProvider>
+          <PhotoView src="./mais_fotos/casal_vista_mar_ar_tv.jpg">
+            <img src="./mais_fotos/casal_vista_mar_ar_tv.jpg" alt="" />
+          </PhotoView>
+        </PhotoProvider>
       </div>
     </div>
   );

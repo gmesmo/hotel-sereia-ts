@@ -6,7 +6,7 @@
   margin-top: 5rem;
   margin-bottom: 5rem;
 
-  width: calc(90dvw - 6rem);
+  width: calc(95dvw - 6rem);
 
   background-color: white;
 
@@ -14,6 +14,20 @@
   font-size: 1.25rem;
 
   box-shadow: var(--shadow);
+}
+
+.aviso {
+  margin-top: 3rem;
+
+  font-size: 2rem;
+  font-family: var(--ff-text);
+
+  text-align: center;
+
+  width: 100%;
+  padding: 2rem;
+  background-color: #104b81;
+  color: white;
 }
 
 #titleWrapper {
@@ -46,7 +60,16 @@
 }
 
 .split {
+  font-family: var(--ff-text);
   display: flex;
+}
+
+.split div {
+  width: 90%;
+}
+
+.split div p {
+  margin-bottom: 2rem;
 }
 
 .split .atracoes {
@@ -89,14 +112,93 @@ li::marker {
 }
 
 table {
+  font-size: 1.15rem;
+
+  width: 75%;
   margin: 2rem auto;
+  box-shadow: #00000055 2px 5px 5px;
+  border-bottom: 3px solid #104b81;
+}
+
+table thead {
+  background-color: var(--azul-base);
 }
 
 table th {
-  background-color: var(--azul-base);
-  padding: 1rem;
+  padding: 0.5rem 1dvw;
+  color: white;
 }
 
-table :is(th, td) {
-  border: 2px solid #104b81;
+table tr {
+  text-align: center;
+}
+
+td {
+  padding: 0.5rem;
+}
+
+.apNome {
+  position: relative;
+
+  text-align: justify;
+  padding-left: 3%;
+  overflow: hidden;
+
+  z-index: 1;
+
+  cursor: pointer;
+
+  transition: color 0.25s;
+}
+
+.apNome:hover {
+  color: white;
+}
+
+.apNome::after {
+  content: "";
+
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: -1;
+
+  background-color: #104b81;
+
+  transition: top 0.25s;
+}
+
+.apNome:hover::after {
+  top: 0;
+}
+
+.odd {
+  background-color: #00000022;
+}
+
+.observ {
+  margin: 0 auto;
+
+  display: block;
+  max-width: 80%;
+  font-size: 0.95rem;
+
+  text-align: center;
+}
+
+.disclaimer {
+  color: var(--azul-base);
+  font-weight: 900;
+  font-family: var(--ff-text);
+
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+img {
+  width: 50%;
+  height: 400px;
 }
