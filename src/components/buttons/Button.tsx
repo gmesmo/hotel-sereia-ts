@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, text, Icon, to }) => {
 
   // Caso contrário, renderize um botão comum
   return (
-    <button onClick={onClick} className={styles.main_link}>
+    <button onClick={onClick} className={`${styles.main_link} ${styles.small}`}>
       {Icon}
       {text}
     </button>

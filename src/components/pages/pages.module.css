@@ -55,6 +55,10 @@
   margin-left: 4%;
 }
 
+.split .carousel {
+  width: 50%;
+}
+
 .atracoes h2 {
   font-size: 1.75rem;
   text-align: center;
@@ -82,4 +86,17 @@ li::marker {
 .buttonWrapper {
   display: flex;
   justify-content: center;
+}
+
+table {
+  margin: 2rem auto;
+}
+
+table th {
+  background-color: var(--azul-base);
+  padding: 1rem;
+}
+
+table :is(th, td) {
+  border: 2px solid #104b81;
 }

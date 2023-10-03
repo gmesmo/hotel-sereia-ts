@@ -3,6 +3,11 @@ import "react-slideshow-image/dist/styles.css";
 
 import Line from "./line";
 import styles from "./pages.module.css";
+import Button from "../buttons/Button";
+
+import { ImWhatsapp } from "react-icons/im";
+import { BsPhoneFill } from "react-icons/bs";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const spanStyle: React.CSSProperties = {
   padding: "20px",
@@ -23,7 +28,7 @@ const divStyle: React.CSSProperties = {
   justifyContent: "center",
   backgroundSize: "cover",
   width: "100%",
-  height: "500px",
+  height: "450px",
   padding: "1rem",
 };
 
@@ -101,7 +106,9 @@ function HomePage() {
           oferece apartamentos com TV e frigobar de frente para o mar. O Hotel
           também possui salão de jogos, de leitura, sauna e piscina.
         </section>
+
         <Line />
+
         <section className={styles.split}>
           <div className={styles.atracoes}>
             <h2>Venha Aproveitar!</h2>
@@ -111,7 +118,7 @@ function HomePage() {
               })}
             </ul>
           </div>
-          <div>
+          <div className={styles.carousel}>
             <Slide>
               {slideImages.map((slideImage, index) => (
                 <div key={index}>
@@ -129,16 +136,110 @@ function HomePage() {
             </Slide>
           </div>
         </section>
+
+        <Line />
+
+        <section>
+          <h3>Encontre-nos através do menu Social ou contatos abaixo</h3>
+          <div className={styles.buttonWrapper}>
+            <Button text={"WhatsApp"} Icon={<ImWhatsapp />} />
+            <Button text={"Celular"} Icon={<BsPhoneFill />} />
+            <Button text={"Localização"} Icon={<FaMapMarkerAlt />} />
+          </div>
+        </section>
       </div>
     </div>
   );
 }
 
+interface Apartamento {
+  nome: string;
+  "1pessoa": string;
+  "2pessoas": string;
+  "3pessoas": string;
+  "4pessoas": string;
+  "5pessoas": string;
+}
+
 function Acomodacoes() {
+  const apartamentosData: Apartamento[] = [
+    {
+      nome: "Vista Mar / Vista Piscina Simples*",
+      "1pessoa": "160,00",
+      "2pessoas": "250,00",
+      "3pessoas": " - ",
+      "4pessoas": " - ",
+      "5pessoas": " - ",
+    },
+    {
+      nome: "Vista Mar 1º Mar",
+      "1pessoa": "230,00",
+      "2pessoas": "320,00",
+      "3pessoas": " - ",
+      "4pessoas": " - ",
+      "5pessoas": " - ",
+    },
+    {
+      nome: "Vista Piscina",
+      "1pessoa": "200,00",
+      "2pessoas": "310,00",
+      "3pessoas": "390,00",
+      "4pessoas": " - ",
+      "5pessoas": " - ",
+    },
+    {
+      nome: "Lateral Mar e Vista Serra",
+      "1pessoa": "200,00",
+      "2pessoas": "300,00",
+      "3pessoas": "380,00",
+      "4pessoas": " - ",
+      "5pessoas": " - ",
+    },
+    {
+      nome: "Conjugado Vista Mar 1º Andar",
+      "1pessoa": " - ",
+      "2pessoas": "350,00",
+      "3pessoas": "440,00",
+      "4pessoas": "490,00",
+      "5pessoas": " - ",
+    },
+  ];
+
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
-        <h1 id={styles.title}>Acomodações</h1>
+        <h2 id={styles.title}>Acomodações</h2>
+      </div>
+      <div className={styles.innerContent}>
+        <h3>
+          Preços em reais (R$) por apartamento/por noite com café da manhã
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Apartamentos</th>
+              <th>1 Pessoa</th>
+              <th>2 Pessoa</th>
+              <th>3 Pessoa</th>
+              <th>4 Pessoa</th>
+              <th>5 Pessoa</th>
+            </tr>
+          </thead>
+          <tbody>
+            {apartamentosData.map((ap) => {
+              return (
+                <tr>
+                  <td>{ap.nome}</td>
+                  <td>{ap["1pessoa"]}</td>
+                  <td>{ap["2pessoas"]}</td>
+                  <td>{ap["3pessoas"]}</td>
+                  <td>{ap["4pessoas"]}</td>
+                  <td>{ap["5pessoas"]}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );
