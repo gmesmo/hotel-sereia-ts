@@ -90,6 +90,10 @@ function HomePage() {
     "Sauna",
   ];
 
+  function buttonClickHandler(url: string) {
+    window.open(url, "_blank", "noreferrer");
+  }
+
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
@@ -142,9 +146,29 @@ function HomePage() {
         <section>
           <h3>Encontre-nos através do menu Social ou contatos abaixo</h3>
           <div className={styles.buttonWrapper}>
-            <Button text={"WhatsApp"} Icon={<ImWhatsapp />} />
-            <Button text={"Celular"} Icon={<BsPhoneFill />} />
-            <Button text={"Localização"} Icon={<FaMapMarkerAlt />} />
+            <Button
+              text={"WhatsApp"}
+              Icon={<ImWhatsapp />}
+              onClick={() =>
+                buttonClickHandler(
+                  "https://wa.me/555193383992?text=Olá! Vim pelo site, gostaria de informações."
+                )
+              }
+            />
+            <Button
+              text={"Celular"}
+              Icon={<BsPhoneFill />}
+              onClick={() => buttonClickHandler("tel:51993383992")}
+            />
+            <Button
+              text={"Localização"}
+              Icon={<FaMapMarkerAlt />}
+              onClick={() =>
+                buttonClickHandler(
+                  "http://maps.apple.com/maps?q=-29.553817905753604,-49.888173302421805"
+                )
+              }
+            />
           </div>
         </section>
       </div>
