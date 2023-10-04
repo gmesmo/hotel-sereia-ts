@@ -45,35 +45,35 @@ const slideImages = [
     caption: "Slide 2",
   },
   {
-    url: "http://hotelsereia.com.br/assets/img/img-2.jpg",
+    url: "./img-2.jpg",
     caption: "Slide 3",
   },
   {
-    url: "http://hotelsereia.com.br/assets/img/img-3.jpg",
+    url: "./img-3.jpg",
     caption: "Slide 4",
   },
   {
-    url: "http://hotelsereia.com.br/assets/img/img-4.jpg",
+    url: "./img-4.jpg",
     caption: "Slide 5",
   },
   {
-    url: "http://hotelsereia.com.br/assets/img/img-5.jpg",
+    url: "./img-5.jpg",
     caption: "Slide 6",
   },
   {
-    url: "http://hotelsereia.com.br/assets/img/img-6.jpg",
+    url: "./img-6.jpg",
     caption: "Slide 7",
   },
   {
-    url: "http://hotelsereia.com.br/assets/img/img-7.jpg",
+    url: "./img-7.jpg",
     caption: "Slide 8",
   },
   {
-    url: "http://hotelsereia.com.br/assets/img/img-8.jpg",
+    url: "./img-8.jpg",
     caption: "Slide 9",
   },
   {
-    url: "http://hotelsereia.com.br/assets/img/img-9.jpg",
+    url: "./img-9.jpg",
     caption: "Slide 10",
   },
 ];
