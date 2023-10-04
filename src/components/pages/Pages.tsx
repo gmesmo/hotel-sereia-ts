@@ -37,11 +37,11 @@ const divStyle: React.CSSProperties = {
 
 const slideImages = [
   {
-    url: "http://hotelsereia.com.br/assets/img/mais_fotos/patio_piscina.jpg",
+    url: "./mais_fotos/patio_piscina.jpg",
     caption: "Patio Piscina",
   },
   {
-    url: "http://hotelsereia.com.br/assets/img/img-1.jpg",
+    url: "./img-1.jpg",
     caption: "Slide 2",
   },
   {
@@ -294,6 +294,10 @@ function Acomodacoes({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
+        <p style={{ textAlign: "center", margin: "0 auto" }}>
+          Para se informar sobre um apartamento clique no nome dele e nos mande
+          um Whats!
+        </p>
         <h3>
           Preços em reais (R$) por apartamento/por noite com café da manhã
         </h3>
@@ -471,7 +475,24 @@ function ComoChegar({ aviso }: PageProps) {
   );
 }
 
+interface images {
+  url: string;
+  title: string;
+  positioning?: string;
+}
+
 function MaisFotos({ aviso }: PageProps) {
+  const imagesList: images[] = [
+    {
+      url: "./mais_fotos/casal_vista_mar.jpg",
+      title: "Apartamento casal Vista Mar",
+    },
+    {
+      url: "./mais_fotos/casal_vista_mar_ar_tv.jpg",
+      title: "Apartamento casal Vista Mar",
+    },
+  ];
+
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
@@ -481,11 +502,30 @@ function MaisFotos({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
-        <PhotoProvider>
-          <PhotoView src="./mais_fotos/casal_vista_mar_ar_tv.jpg">
-            <img src="./mais_fotos/casal_vista_mar_ar_tv.jpg" alt="" />
-          </PhotoView>
-        </PhotoProvider>
+        <p
+          style={{
+            textAlign: "center",
+            margin: "0 auto",
+            marginBottom: "2rem",
+          }}
+        >
+          Clique sob a imagem para expandir
+        </p>
+
+        <div className={styles.imagesGrouping}>
+          <PhotoProvider>
+            {imagesList.map((image) => {
+              return (
+                <div className={styles.imageContainer}>
+                  <PhotoView src={image.url}>
+                    <img src={image.url} alt="" />
+                  </PhotoView>
+                  <h3 className={styles.imageInfo}>{image.title}</h3>
+                </div>
+              );
+            })}
+          </PhotoProvider>
+        </div>
       </div>
     </div>
   );
