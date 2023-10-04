@@ -71,3 +71,22 @@ a:visited {
 .main_link:hover::after {
   top: 0;
 }
+
+@media (max-width: 767px) {
+  .main_link {
+    width: 29dvw;
+    font-size: 1.15rem;
+    margin: 0.5rem;
+  }
+
+  .main_link.small {
+    max-width: none;
+    width: 30dvw;
+    padding: 0.2rem;
+    margin-bottom: 2rem;
+  }
+
+  section:has(.small) {
+    padding: 1.5rem;
+  }
+}

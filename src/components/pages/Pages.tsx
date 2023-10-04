@@ -14,14 +14,14 @@ import "react-photo-view/dist/react-photo-view.css";
 
 const spanStyle: React.CSSProperties = {
   padding: "20px",
-  background: "#efefef44",
-  color: "#000000",
+  background: "#000000aa",
+  color: "#FFFFFF",
   position: "absolute",
   width: "100%",
   textAlign: "center",
-  fontWeight: "bold",
+  fontWeight: "300",
   fontFamily: "var(--ff-text)",
-  letterSpacing: ".05rem",
+  letterSpacing: "3px",
 };
 
 const divStyle: React.CSSProperties = {
@@ -441,7 +441,7 @@ function ComoChegar({ aviso }: PageProps) {
 
       <div className={styles.innerContent}>
         <div className={styles.split}>
-          <div className="mapouter">
+          <div className={`mapouter ${styles.map}`}>
             <div className="gmap_canvas">
               <iframe
                 style={{
@@ -455,7 +455,7 @@ function ComoChegar({ aviso }: PageProps) {
             </div>
           </div>
 
-          <div>
+          <div className={styles.directions}>
             <p>Para chegar no Hotel Sereia é extremamente simples!</p>
             <p>
               Ao entrar em Arroio do Sal pela entrada principal (Av. Assis
@@ -491,6 +491,58 @@ function MaisFotos({ aviso }: PageProps) {
       url: "./mais_fotos/casal_vista_mar_ar_tv.jpg",
       title: "Apartamento casal Vista Mar",
     },
+    {
+      url: "./mais_fotos/casal_vista_mar_vista.jpg",
+      title: "Apartamento casal Vista Mar",
+    },
+    {
+      url: "./mais_fotos/conjugado_vista_mar.jpg",
+      title: "Conjugado Vista Mar",
+    },
+    {
+      url: "./mais_fotos/conjugado_vista_mar_2.jpg",
+      title: "Conjugado Vista Mar",
+    },
+    {
+      url: "./mais_fotos/conjugado_vista_mar_vista.jpg",
+      title: "Conjugado Vista Mar",
+    },
+    {
+      url: "./mais_fotos/conjugado_vista_mar_terreo.jpg",
+      title: "Conjugado Térreo",
+    },
+    {
+      url: "./mais_fotos/conjugado_vista_mar_terreo_2.jpg",
+      title: "Conjugado Térreo",
+    },
+    {
+      url: "./mais_fotos/conjugado_vista_mar_terreo_vista.jpg",
+      title: "Conjugado Térreo",
+    },
+    {
+      url: "./mais_fotos/conjugado_vista_mar_tv_cozinha.jpg",
+      title: "Conjugado Térreo",
+    },
+    {
+      url: "./mais_fotos/patio_piscina.jpg",
+      title: "Pátio Interno",
+    },
+    {
+      url: "./mais_fotos/patio_piscina_2.jpg",
+      title: "Pátio Interno",
+    },
+    {
+      url: "./mais_fotos/patio_piscina_3.jpg",
+      title: "Pátio Interno - Piscina",
+    },
+    {
+      url: "./mais_fotos/sala_estar.jpg",
+      title: "Sala de Estar",
+    },
+    {
+      url: "./mais_fotos/sala_estar_redario.jpg",
+      title: "Redário",
+    },
   ];
 
   return (
@@ -514,11 +566,14 @@ function MaisFotos({ aviso }: PageProps) {
 
         <div className={styles.imagesGrouping}>
           <PhotoProvider>
-            {imagesList.map((image) => {
+            {imagesList.map((image, index) => {
               return (
-                <div className={styles.imageContainer}>
-                  <PhotoView src={image.url}>
-                    <img src={image.url} alt="" />
+                <div
+                  className={styles.imageContainer}
+                  style={{ width: index === 14 ? "100%" : "" }}
+                >
+                  <PhotoView src={image.url} key={`foto_${index}`}>
+                    <img src={image.url} alt="" key={`foto_${index}`} />
                   </PhotoView>
                   <h3 className={styles.imageInfo}>{image.title}</h3>
                 </div>
