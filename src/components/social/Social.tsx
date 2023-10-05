@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./Social.module.css";
 import { SocialButton } from "../buttons/Button";
 
-import BsInstagram from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 import { ImWhatsapp, ImFacebook } from "react-icons/im";
 
 function Social() {
