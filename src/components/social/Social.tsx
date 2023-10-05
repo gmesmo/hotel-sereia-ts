@@ -31,8 +31,11 @@ function Social() {
       className={`${styles.Social} ${isOpen && styles.open}`}
       ref={socialRef}
     >
-      <p onClick={() => setIsOpen(!isOpen)}>Social</p>
-      <div>
+      <div className={styles.titleWrapper}>
+        <p onClick={() => setIsOpen(!isOpen)}>Social</p>
+      </div>
+
+      <div className={styles.buttonsWrapper}>
         <SocialButton Icon={<ImWhatsapp />} customBg="#25d366" />
         <SocialButton Icon={<ImFacebook />} customBg="#1773ea" />
         <SocialButton

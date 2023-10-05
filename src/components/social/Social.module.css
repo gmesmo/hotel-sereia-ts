@@ -1,35 +1,91 @@
 .Social {
-  width: 23dvh;
-  height: 100dvw;
+  width: 50dvw;
+  height: 20dvh;
   background-color: var(--destaque);
 
   position: fixed;
 
-  top: -77.5dvh;
-  right: -53dvw;
+  top: 12.5dvh;
+  right: calc(-50dvw + 4rem);
 
   z-index: 10;
 
   text-align: center;
   color: white;
 
-  transform: rotate(-90deg);
-
   transition: right 0.5s;
 
   box-shadow: 0px 0px 5px #00000088;
+
+  display: flex;
+  flex-direction: row;
 }
 
-.Social p {
+.titleWrapper {
+  height: 100%;
+  width: 4rem;
+
+  overflow: hidden;
+}
+
+.titleWrapper p {
   font-family: var(--ff-destaque);
 
-  padding: 0.75rem;
+  position: relative;
+  left: -10%;
+  bottom: 2%;
+
   font-size: 1.5rem;
+  letter-spacing: 5px;
+
+  width: 300%;
+  height: 100%;
+  padding: 1.5rem;
+
+  transform: rotate(-90deg);
+
   background: linear-gradient(135deg, #ccc3 25%, transparent 25%) -40px 0,
     linear-gradient(225deg, #ccc3 25%, transparent 25%) -40px 0,
     linear-gradient(315deg, #ccc3 25%, transparent 25%),
     linear-gradient(45deg, #ccc3 25%, transparent 25%);
   background-size: 80px 80px;
+}
+
+.Social:hover {
+  cursor: pointer;
+}
+
+.Social.open {
+  right: calc(-50dvw + 7.8rem);
+  /* right: 0; */
+}
+
+.buttonsWrapper {
+  background-color: red;
+
+  height: 100%;
+  width: 3.8rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* .Social p {
+  height: 2rem;
+
+  position: absolute;
+  bottom: 40%;
+  left: -45%;
+
+  width: 100%;
+
+  
+  font-family: var(--ff-destaque);
+
+  padding: 0.75rem;
+  font-size: 1.5rem;
+  
 }
 
 .Social p:hover {
@@ -50,4 +106,4 @@
   .Social.open {
     right: 23dvw;
   }
-}
+} */

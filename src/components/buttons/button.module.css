@@ -83,16 +83,13 @@ div:has(> .socialButton) {
   justify-content: center;
   align-items: center;
 
-  transform: rotate(90deg);
-
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 1;
+  border: none;
   font-size: 2rem;
 
   color: white;
-
-  margin: 0;
-  border: none;
-  width: 33.3%;
-  aspect-ratio: 1;
 }
 
 @media (max-width: 767px) {
