@@ -1,3 +1,11 @@
+a:has(> .logo) {
+  position: absolute;
+
+  top: 14dvh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .logo {
   position: relative;
   z-index: 5;
@@ -9,11 +17,12 @@
 
   background-color: white;
 
-  margin: 0 auto;
   margin-top: 5dvh;
 
   width: 27.5dvw;
   height: 18dvh;
+
+  margin: 0 auto;
 
   text-align: center;
 
