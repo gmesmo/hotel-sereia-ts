@@ -228,11 +228,20 @@ button {
   }
 
   .inicio {
+    text-align: justify;
     padding: 2rem;
   }
 
-  .atracoes {
+  .split .atracoes {
+    margin: 0;
     padding: 2rem;
+    width: 100%;
+
+    text-align: justify;
+  }
+
+  .split .carousel {
+    width: 100%;
   }
 
   .split {
@@ -264,6 +273,11 @@ button {
     width: 100%;
     margin: 0;
     font-size: 13px;
+  }
+
+  .observ {
+    text-align: justify;
+    margin-top: 2rem;
   }
 
   .disclaimer {

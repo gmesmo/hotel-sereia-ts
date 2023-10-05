@@ -9,7 +9,7 @@ import Navigation from "./components/navigation/Navigation";
 import Logo from "./components/logo/logo";
 
 import "./App.css";
-// import Social from "./components/social/social";
+import Social from "./components/social/Social";
 
 const aviso: string = "Retornamos dia 10/10!";
 
@@ -19,7 +19,7 @@ function App() {
       <Router>
         <Navigation />
         <Logo />
-        {/* <Social /> */}
+        <Social />
         <Routes>
           <Route path="/" element={<HomePage aviso={aviso} />} />
           <Route path="/Acomodacoes" element={<Acomodacoes aviso={aviso} />} />

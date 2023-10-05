@@ -5,3 +5,10 @@
 
   background-color: var(--destaque);
 }
+
+@media (max-width: 767px) {
+  .breaker {
+    width: 90dvw;
+    margin: 2rem auto;
+  }
+}

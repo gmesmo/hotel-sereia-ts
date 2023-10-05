@@ -1,20 +1,53 @@
 .Social {
-  width: 10rem;
-  height: 15rem;
-  background-color: red;
+  width: 23dvh;
+  height: 100dvw;
+  background-color: var(--destaque);
 
-  position: absolute;
-  top: 6rem;
-  right: -10rem;
+  position: fixed;
+
+  top: -77.5dvh;
+  right: -53dvw;
+
+  z-index: 10;
 
   text-align: center;
   color: white;
 
   transform: rotate(-90deg);
+
+  transition: right 0.5s;
+
+  box-shadow: 0px 0px 5px #00000088;
 }
 
 .Social p {
-  padding: 0.5rem;
+  font-family: var(--ff-destaque);
+
+  padding: 0.75rem;
   font-size: 1.5rem;
-  background-color: aqua;
+  background: linear-gradient(135deg, #ccc3 25%, transparent 25%) -40px 0,
+    linear-gradient(225deg, #ccc3 25%, transparent 25%) -40px 0,
+    linear-gradient(315deg, #ccc3 25%, transparent 25%),
+    linear-gradient(45deg, #ccc3 25%, transparent 25%);
+  background-size: 80px 80px;
+}
+
+.Social p:hover {
+  cursor: pointer;
+  user-select: none;
+}
+
+.Social.open {
+  right: 0;
+}
+
+@media (max-width: 767px) {
+  .Social {
+    top: -1.5dvh;
+    right: -62dvw;
+  }
+
+  .Social.open {
+    right: 23dvw;
+  }
 }

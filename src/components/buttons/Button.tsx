@@ -4,12 +4,12 @@ import styles from "./button.module.css";
 
 interface ButtonProps {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  text: string;
+  text?: string;
   Icon?: ReactNode;
   to?: string; // Adicione a prop "to"
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, text, Icon, to }) => {
+function Button({ onClick, text, Icon, to }: ButtonProps) {
   if (to) {
     // Se a prop "to" estiver presente, renderize um Link do React Router
     return (
@@ -29,6 +29,10 @@ const Button: React.FC<ButtonProps> = ({ onClick, text, Icon, to }) => {
       {text}
     </button>
   );
-};
+}
 
-export default Button;
+function SocialButton() {
+  return <button></button>;
+}
+
+export { Button, SocialButton };

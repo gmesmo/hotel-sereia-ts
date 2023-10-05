@@ -3,7 +3,7 @@ import "react-slideshow-image/dist/styles.css";
 
 import Line from "./line";
 import styles from "./pages.module.css";
-import Button from "../buttons/Button";
+import { Button } from "../buttons/Button";
 
 import { ImWhatsapp } from "react-icons/im";
 import { BsPhoneFill } from "react-icons/bs";
@@ -478,7 +478,6 @@ function ComoChegar({ aviso }: PageProps) {
 interface images {
   url: string;
   title: string;
-  positioning?: string;
 }
 
 function MaisFotos({ aviso }: PageProps) {
