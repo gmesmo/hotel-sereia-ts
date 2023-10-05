@@ -8,16 +8,18 @@ function Navigation() {
 
   return (
     <nav className={styles.header}>
-      {location.pathname !== "/" && <Button text={"Início"} to="/" />}
-      {location.pathname !== "/Acomodacoes" && (
-        <Button text={"Acomodações"} to="/Acomodacoes" />
-      )}
-      {location.pathname !== "/Como_chegar" && (
-        <Button text={"Como chegar"} to="/Como_chegar" />
-      )}
-      {location.pathname !== "/Mais_fotos" && (
-        <Button text={"Mais fotos"} to="/Mais_fotos" />
-      )}
+      <div>
+        {location.pathname !== "/" && <Button text={"Início"} to="/" />}
+        {location.pathname !== "/Acomodacoes" && (
+          <Button text={"Acomodações"} to="/Acomodacoes" />
+        )}
+        {location.pathname !== "/Como_chegar" && (
+          <Button text={"Como chegar"} to="/Como_chegar" />
+        )}
+        {location.pathname !== "/Mais_fotos" && (
+          <Button text={"Mais fotos"} to="/Mais_fotos" />
+        )}
+      </div>
     </nav>
   );
 }

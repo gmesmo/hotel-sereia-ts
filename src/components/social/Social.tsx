@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./Social.module.css";
 import { SocialButton } from "../buttons/Button";
 
+import BsInstagram from "react-icons/bs";
 import { ImWhatsapp, ImFacebook } from "react-icons/im";
-import SiInstagram from "react-icons/si";
 
 function Social() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -35,10 +35,10 @@ function Social() {
       <div>
         <SocialButton Icon={<ImWhatsapp />} customBg="#25d366" />
         <SocialButton Icon={<ImFacebook />} customBg="#1773ea" />
-        {/* <SocialButton
-          Icon={<SiInstagram />}
+        <SocialButton
+          Icon={<BsInstagram />}
           customBg="radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)"
-        /> */}
+        />
       </div>
     </div>
   );

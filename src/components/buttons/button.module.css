@@ -13,7 +13,7 @@
 
   color: var(--destaque);
 
-  margin: 1rem;
+  margin: 0;
   padding: 0.4rem;
   height: 3rem;
   width: 15dvw;
@@ -99,7 +99,6 @@ div:has(> .socialButton) {
   .main_link {
     width: 29dvw;
     font-size: 1.15rem;
-    margin: 0.5rem;
   }
 
   .main_link.small {
