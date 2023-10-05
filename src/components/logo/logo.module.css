@@ -47,10 +47,10 @@
 @media (max-width: 767px) {
   .logo {
     width: 75dvw;
-    margin-top: 3dvh;
+    margin-top: 5dvh;
   }
 
   .backRibbon {
-    top: 16.5dvh;
+    top: 20.5dvh;
   }
 }

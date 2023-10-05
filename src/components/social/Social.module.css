@@ -6,7 +6,7 @@
   position: fixed;
 
   top: 12.5dvh;
-  right: calc(-50dvw + 3.8rem);
+  right: calc(-50dvw + 3.3rem);
 
   z-index: 10;
 
@@ -33,18 +33,14 @@
 .titleWrapper p {
   font-family: var(--ff-destaque);
 
-  position: relative;
-  left: -10%;
-  bottom: 2%;
-
   font-size: 1.5rem;
   letter-spacing: 5px;
 
-  width: 300%;
-  height: 100%;
-  padding: 1.5rem;
+  transform: rotate(-90deg) translate(0, -0.5rem);
 
-  transform: rotate(-90deg);
+  width: 20dvh;
+  height: 20dvh;
+  padding: 1.5rem;
 
   background: linear-gradient(135deg, #ccc3 25%, transparent 25%) -40px 0,
     linear-gradient(225deg, #ccc3 25%, transparent 25%) -40px 0,
@@ -75,10 +71,10 @@
 
 @media (max-width: 767px) {
   .Social {
-    top: 11dvh;
+    top: 15.5dvh;
   }
 
-  .titleWrapper p {
-    left: -25%;
+  .buttonsWrapper {
+    width: 2.9rem;
   }
 }
