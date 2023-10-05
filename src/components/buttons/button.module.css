@@ -72,6 +72,29 @@ a:visited {
   top: 0;
 }
 
+div:has(> .socialButton) {
+  display: flex;
+
+  flex-direction: row-reverse;
+}
+
+.socialButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: rotate(90deg);
+
+  font-size: 2rem;
+
+  color: white;
+
+  margin: 0;
+  border: none;
+  width: 33.3%;
+  aspect-ratio: 1;
+}
+
 @media (max-width: 767px) {
   .main_link {
     width: 29dvw;

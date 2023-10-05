@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode } from "react";
+import { CSSProperties, MouseEvent, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import styles from "./button.module.css";
 
@@ -6,7 +6,8 @@ interface ButtonProps {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   text?: string;
   Icon?: ReactNode;
-  to?: string; // Adicione a prop "to"
+  to?: string;
+  customBg?: string;
 }
 
 function Button({ onClick, text, Icon, to }: ButtonProps) {
@@ -31,8 +32,16 @@ function Button({ onClick, text, Icon, to }: ButtonProps) {
   );
 }
 
-function SocialButton() {
-  return <button></button>;
+function SocialButton({ onClick, Icon, customBg }: ButtonProps) {
+  const estilo: CSSProperties = {
+    background: customBg,
+  };
+
+  return (
+    <button className={styles.socialButton} onClick={onClick} style={estilo}>
+      {Icon}
+    </button>
+  );
 }
 
 export { Button, SocialButton };
