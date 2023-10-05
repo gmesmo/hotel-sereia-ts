@@ -197,87 +197,79 @@ interface Apartamento {
 function Acomodacoes({ aviso }: PageProps) {
   const apartamentosData: Apartamento[] = [
     {
-      nome: "Vista Mar / Vista Piscina Simples*",
-      "1pessoa": "160,00",
-      "2pessoas": "250,00",
+      nome: "Vista Mar/Serra simples",
+      "1pessoa": "190,00",
+      "2pessoas": "290,00",
       "3pessoas": " - ",
       "4pessoas": " - ",
       "5pessoas": " - ",
     },
     {
       nome: "Vista Mar 1º Mar",
-      "1pessoa": "230,00",
-      "2pessoas": "320,00",
+      "1pessoa": "290,00",
+      "2pessoas": "370,00",
       "3pessoas": " - ",
       "4pessoas": " - ",
       "5pessoas": " - ",
     },
     {
       nome: "Vista Piscina",
-      "1pessoa": "200,00",
-      "2pessoas": "310,00",
-      "3pessoas": "390,00",
+      "1pessoa": "270,00",
+      "2pessoas": "350,00",
+      "3pessoas": "450,00",
       "4pessoas": " - ",
       "5pessoas": " - ",
     },
     {
       nome: "Lateral Mar e Vista Serra",
-      "1pessoa": "200,00",
-      "2pessoas": "300,00",
-      "3pessoas": "380,00",
+      "1pessoa": "280,00",
+      "2pessoas": "340,00",
+      "3pessoas": "450,00",
       "4pessoas": " - ",
       "5pessoas": " - ",
     },
     {
       nome: "Conjugado Vista Mar 1º Andar",
       "1pessoa": " - ",
-      "2pessoas": "350,00",
-      "3pessoas": "440,00",
-      "4pessoas": "490,00",
+      "2pessoas": "390,00",
+      "3pessoas": "510,00",
+      "4pessoas": "580,00",
       "5pessoas": " - ",
     },
     {
-      nome: "Conjugado Vista Piscina Térreo",
+      nome: "Conjugado Vista Mar, 02 banheiros com mini cozinha",
       "1pessoa": " - ",
       "2pessoas": " - ",
-      "3pessoas": "420,00",
-      "4pessoas": "470,00",
-      "5pessoas": "540,00",
+      "3pessoas": "520,00",
+      "4pessoas": "590,00",
+      "5pessoas": "660,00",
     },
     {
-      nome: "Conjugado Vista Mar 1º Térreo, 02 Banheiros com mini cozinha",
+      nome: "Conjugado Vista Serra/Pátio com mini cozinha",
       "1pessoa": " - ",
-      "2pessoas": " - ",
-      "3pessoas": "430,00",
-      "4pessoas": "510,00",
-      "5pessoas": "560,00",
-    },
-    {
-      nome: "Conjugado Vista Serra / Pátio com mini cozinha",
-      "1pessoa": " - ",
-      "2pessoas": "340,00",
-      "3pessoas": "420,00",
-      "4pessoas": "480,00",
-      "5pessoas": " - ",
+      "2pessoas": "390,00",
+      "3pessoas": "490,00",
+      "4pessoas": "580,00",
+      "5pessoas": "640,00",
     },
   ];
 
   const apartamentoSemServico: Apartamento[] = [
     {
-      nome: "Conjugado Vista Mar térreo, 02 banheiro com mini cozinha",
+      nome: "Conjugado Vista Mar, 02 banheiros com mini cozinha",
       "1pessoa": " - ",
       "2pessoas": " - ",
-      "3pessoas": "320,00",
-      "4pessoas": "350,00",
-      "5pessoas": "390,00",
+      "3pessoas": "380,00",
+      "4pessoas": "440,00",
+      "5pessoas": "480,00",
     },
     {
       nome: "Conjugado Vista Serra/Pátio com mini cozinha",
       "1pessoa": " - ",
-      "2pessoas": "240,00",
-      "3pessoas": "290,00",
-      "4pessoas": "330,00",
-      "5pessoas": " - ",
+      "2pessoas": "300,00",
+      "3pessoas": "370,00",
+      "4pessoas": "430,00",
+      "5pessoas": "450,00",
     },
   ];
 
@@ -394,7 +386,7 @@ function Acomodacoes({ aviso }: PageProps) {
         </table>
         <span className={styles.observ}>
           * Não inclui café da manhã, roupas de cama e banho e serviço de
-          limpeza diária ** Taxa de limpeza ao final da estadia R$ 100,00
+          limpeza diária ** Taxa de limpeza ao final da estadia R$ 180,00
         </span>
 
         <Line />
@@ -423,7 +415,7 @@ function Acomodacoes({ aviso }: PageProps) {
         <Line />
 
         <div className={styles.disclaimer}>
-          Taxa de Garagem: R$ 20,00 a diária
+          Taxa de Garagem: R$ 30,00 a diária
         </div>
       </div>
     </div>

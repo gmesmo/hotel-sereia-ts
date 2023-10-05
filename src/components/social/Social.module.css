@@ -6,7 +6,7 @@
   position: fixed;
 
   top: 12.5dvh;
-  right: calc(-50dvw + 4rem);
+  right: calc(-50dvw + 3.8rem);
 
   z-index: 10;
 
@@ -19,6 +19,8 @@
 
   display: flex;
   flex-direction: row;
+
+  user-select: none;
 }
 
 .titleWrapper {
@@ -61,7 +63,7 @@
 }
 
 .buttonsWrapper {
-  background-color: red;
+  background-color: var(--destaque);
 
   height: 100%;
   width: 3.8rem;
@@ -71,39 +73,12 @@
   flex-wrap: wrap;
 }
 
-/* .Social p {
-  height: 2rem;
-
-  position: absolute;
-  bottom: 40%;
-  left: -45%;
-
-  width: 100%;
-
-  
-  font-family: var(--ff-destaque);
-
-  padding: 0.75rem;
-  font-size: 1.5rem;
-  
-}
-
-.Social p:hover {
-  cursor: pointer;
-  user-select: none;
-}
-
-.Social.open {
-  right: 0;
-}
-
 @media (max-width: 767px) {
   .Social {
-    top: -1.5dvh;
-    right: -62dvw;
+    top: 11dvh;
   }
 
-  .Social.open {
-    right: 23dvw;
+  .titleWrapper p {
+    left: -25%;
   }
-} */
+}

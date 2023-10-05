@@ -26,6 +26,10 @@ function Social() {
     };
   }, []);
 
+  function buttonClickHandler(url: string) {
+    window.open(url, "_blank", "noreferrer");
+  }
+
   return (
     <div
       className={`${styles.Social} ${isOpen && styles.open}`}
@@ -36,11 +40,28 @@ function Social() {
       </div>
 
       <div className={styles.buttonsWrapper}>
-        <SocialButton Icon={<ImWhatsapp />} customBg="#25d366" />
-        <SocialButton Icon={<ImFacebook />} customBg="#1773ea" />
+        <SocialButton
+          Icon={<ImWhatsapp />}
+          customBg="#25d366"
+          onClick={() =>
+            buttonClickHandler(
+              "https://wa.me/555193383992?text=Olá! Vim pelo site, gostaria de informações."
+            )
+          }
+        />
+        <SocialButton
+          Icon={<ImFacebook />}
+          customBg="#1773ea"
+          onClick={() =>
+            buttonClickHandler("https://pt-br.facebook.com/HotelSereia/")
+          }
+        />
         <SocialButton
           Icon={<BsInstagram />}
           customBg="radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)"
+          onClick={() =>
+            buttonClickHandler("https://instagram.com/hotel_sereia")
+          }
         />
       </div>
     </div>

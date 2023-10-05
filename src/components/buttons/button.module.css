@@ -83,13 +83,15 @@ div:has(> .socialButton) {
   justify-content: center;
   align-items: center;
 
-  width: 100%;
+  height: 33.3%;
   margin: 0;
   aspect-ratio: 1;
   border: none;
   font-size: 2rem;
 
   color: white;
+
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
@@ -107,5 +109,9 @@ div:has(> .socialButton) {
 
   section:has(.small) {
     padding: 1.5rem;
+  }
+
+  .socialButton {
+    font-size: 1.5rem;
   }
 }
