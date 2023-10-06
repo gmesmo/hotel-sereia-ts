@@ -1,27 +1,15 @@
-# React + TypeScript + Vite
+# Sobre
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto para o Hotel Sereia, realizado em [React + Vite + TypeScript]
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React-router-dom: Para ter maior controle das páginas e um melhor tempo de resposta.
+- React-slideshow-image: Melhor interface para controle da exibição de slides da página inicial.
+- React-photo-provider: utilizado para exibição da tela Mais Fotos, possibilitando melhor visualização para o usuário.
+- React-icons: Escolha estética para interface mais amigável.
 
-## Expanding the ESLint configuration
+### Ainda à implementar
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- i18next: Para tradução da página para espanhol, público alvo da página.
+- Component "EasyBooking": Para possibilitar o usuário selecionar números de hospedes e encaminhar para conversa do WhatsApp.
