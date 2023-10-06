@@ -100,7 +100,9 @@ ul {
 
 .atracoes li {
   font-size: 1.25rem;
+  text-align: justify;
   margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 li::marker {

@@ -39,20 +39,21 @@
   background-color: var(--destaque);
   left: 0;
 
-  height: 5rem;
-  width: 5rem;
+  height: 100%;
+  width: 50%;
 
   z-index: -1;
 
   transition: all 0.5s;
 }
 
-.langSelector.pt::after {
+/* .langSelector.pt::after {
   transform: rotate(-70deg) translate(10%, -35%);
-}
+} */
 
 .langSelector.es::after {
-  transform: rotate(-70deg) translate(10%, 60%);
+  /* transform: rotate(-70deg) translate(10%, 60%); */
+  left: 50%;
 }
 
 .langSelector button {
@@ -77,15 +78,7 @@
   }
 
   .header .langSelector {
-    top: 12dvh;
+    top: 5rem;
     width: 5rem;
-  }
-
-  .langSelector.pt::after {
-    transform: rotate(-70deg) translate(10%, -50%);
-  }
-
-  .langSelector.es::after {
-    transform: rotate(-70deg) translate(10%, 48%);
   }
 }
