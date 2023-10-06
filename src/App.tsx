@@ -22,9 +22,7 @@ const aviso: string = "Retornamos dia 10/10!";
 function RedirectToHome() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    navigate("/");
-  }, [navigate]);
+  navigate("/");
 
   return null;
 }
