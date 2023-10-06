@@ -18,8 +18,74 @@
   align-items: center;
 }
 
+.header .langSelector {
+  width: 6dvw;
+
+  position: absolute;
+  z-index: 5;
+
+  top: 8.5dvh;
+  left: 0px;
+
+  border: solid var(--destaque) 3px;
+
+  overflow: hidden;
+}
+
+.langSelector::after {
+  content: "";
+
+  position: absolute;
+  background-color: var(--destaque);
+  left: 0;
+
+  height: 5rem;
+  width: 5rem;
+
+  z-index: -1;
+
+  transition: all 0.5s;
+}
+
+.langSelector.pt::after {
+  transform: rotate(-70deg) translate(10%, -35%);
+}
+
+.langSelector.es::after {
+  transform: rotate(-70deg) translate(10%, 60%);
+}
+
+.langSelector button {
+  cursor: pointer;
+  font-family: var(--ff-destaque);
+  font-size: 1rem;
+
+  margin: 0;
+
+  padding: 0.5rem;
+  width: 50%;
+
+  border: none;
+  background: none;
+
+  color: white;
+}
+
 @media (max-width: 767px) {
   .header div {
     width: 100%;
+  }
+
+  .header .langSelector {
+    top: 12dvh;
+    width: 5rem;
+  }
+
+  .langSelector.pt::after {
+    transform: rotate(-70deg) translate(10%, -50%);
+  }
+
+  .langSelector.es::after {
+    transform: rotate(-70deg) translate(10%, 48%);
   }
 }
