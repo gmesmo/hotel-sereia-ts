@@ -11,6 +11,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { Link } from "react-router-dom";
 
 const spanStyle: React.CSSProperties = {
   padding: "20px",
@@ -577,4 +578,29 @@ function MaisFotos({ aviso }: PageProps) {
   );
 }
 
-export { HomePage, Acomodacoes, ComoChegar, MaisFotos };
+function Error404() {
+  return (
+    <div className={styles.content}>
+      <div id={styles.titleWrapper}>
+        <h2 id={styles.title}>OPS!</h2>
+      </div>
+      <div className={styles.innerContent} style={{ textAlign: "center" }}>
+        Parece que se perdeu, alguma coisa deu errado!
+        <p>
+          <Link
+            to="/"
+            style={{
+              color: "var(--destaque)",
+              fontWeight: "bold",
+              fontSize: "2rem",
+            }}
+          >
+            Clique aqui para voltar
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export { HomePage, Acomodacoes, ComoChegar, MaisFotos, Error404 };
