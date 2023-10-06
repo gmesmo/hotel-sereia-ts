@@ -226,7 +226,7 @@ button {
 @media (max-width: 767px) {
   .content {
     width: 100dvw;
-    margin: 2rem 0;
+    /* margin: 40dvh 0; */
   }
 
   .innerContent {

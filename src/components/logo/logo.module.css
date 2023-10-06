@@ -56,7 +56,7 @@ a:has(> .logo) {
 @media (max-width: 767px) {
   .logo {
     width: 75dvw;
-    margin-top: 5dvh;
+    margin-top: 2dvh;
   }
 
   .backRibbon {
