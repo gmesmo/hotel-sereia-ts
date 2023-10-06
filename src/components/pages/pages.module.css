@@ -45,8 +45,17 @@
 }
 
 .innerContent h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   padding: 0.5rem;
+}
+
+.innerContent {
+  text-align: center;
+}
+
+.innerContent p .destaque {
+  color: var(--destaque);
+  font-weight: bold;
 }
 
 .inicio {

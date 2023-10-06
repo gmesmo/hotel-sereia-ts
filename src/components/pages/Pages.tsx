@@ -287,6 +287,12 @@ function Acomodacoes({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
+        <p style={{ marginBottom: "3rem" }}>
+          Valores para a alta temporada de{" "}
+          <span className={styles.destaque}>20/12/2023</span> à{" "}
+          <span className={styles.destaque}>28/02/2024</span>
+        </p>
+
         <p style={{ textAlign: "center", margin: "0 auto" }}>
           Para se informar sobre um apartamento clique no nome dele e nos mande
           um Whats!
@@ -294,6 +300,12 @@ function Acomodacoes({ aviso }: PageProps) {
         <h3>
           Preços em reais (R$) por apartamento/por noite com café da manhã
         </h3>
+        <div style={{ textAlign: "center", margin: "0 auto" }}>
+          <h3>Reservas com antecedência</h3>
+          <p>Apartamentos padrão: 5 dias</p>
+          <p>Apartamentos com mini cozinha: 7 dias</p>
+        </div>
+
         <table cellSpacing={0}>
           <thead>
             <tr>
