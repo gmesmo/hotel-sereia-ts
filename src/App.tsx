@@ -25,6 +25,7 @@ function App() {
           <Route path="/Acomodacoes" element={<Acomodacoes aviso={aviso} />} />
           <Route path="/Como_chegar" element={<ComoChegar aviso={aviso} />} />
           <Route path="/Mais_fotos" element={<MaisFotos aviso={aviso} />} />
+          <Route path="*" element={<HomePage aviso={aviso} />} />
         </Routes>
       </Router>
     </div>

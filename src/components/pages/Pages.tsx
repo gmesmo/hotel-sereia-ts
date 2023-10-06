@@ -42,39 +42,39 @@ const slideImages = [
   },
   {
     url: "./img-1.jpg",
-    caption: "Slide 2",
+    caption: "Por do sol",
   },
   {
     url: "./img-2.jpg",
-    caption: "Slide 3",
+    caption: "Café da manhã",
   },
   {
     url: "./img-3.jpg",
-    caption: "Slide 4",
+    caption: "Pátio Interno",
   },
   {
     url: "./img-4.jpg",
-    caption: "Slide 5",
+    caption: "Parque",
   },
   {
     url: "./img-5.jpg",
-    caption: "Slide 6",
+    caption: "Redário",
   },
   {
     url: "./img-6.jpg",
-    caption: "Slide 7",
+    caption: "Área de Convivência",
   },
   {
     url: "./img-7.jpg",
-    caption: "Slide 8",
+    caption: "Área de Convivência e Leitura",
   },
   {
     url: "./img-8.jpg",
-    caption: "Slide 9",
+    caption: "Piscina",
   },
   {
     url: "./img-9.jpg",
-    caption: "Slide 10",
+    caption: "Vista para o mar",
   },
 ];
 
