@@ -97,7 +97,7 @@ div:has(> .socialButton) {
 @media (max-width: 767px) {
   .main_link {
     width: 29dvw;
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 
   .main_link.small {
