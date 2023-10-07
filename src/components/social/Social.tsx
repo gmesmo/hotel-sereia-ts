@@ -5,7 +5,22 @@ import { SocialButton } from "../buttons/Button";
 import { BsInstagram } from "react-icons/bs";
 import { ImWhatsapp, ImFacebook } from "react-icons/im";
 
+import { Trans, useTranslation } from "react-i18next";
+
+type TranslationObj = {
+  [key: string]: {
+    nativeName: string;
+  };
+};
+
+const lngs: TranslationObj = {
+  pt: { nativeName: "PT" },
+  es: { nativeName: "ES" },
+};
+
 function Social() {
+  const { t, i18n } = useTranslation();
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const socialRef = useRef<HTMLDivElement | null>(null);
 
@@ -45,7 +60,7 @@ function Social() {
           customBg="#25d366"
           onClick={() =>
             buttonClickHandler(
-              "https://wa.me/555193383992?text=Olá! Vim pelo site, gostaria de informações."
+              `https://wa.me/555193383992?text=${t("whatsMessage")}`
             )
           }
         />

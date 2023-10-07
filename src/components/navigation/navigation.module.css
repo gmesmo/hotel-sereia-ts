@@ -24,7 +24,7 @@
   position: absolute;
   z-index: 5;
 
-  top: 8.5dvh;
+  top: 5rem;
   left: 0px;
 
   border: solid var(--destaque) 3px;

@@ -13,6 +13,19 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
+import { Trans, useTranslation } from "react-i18next";
+
+type TranslationObj = {
+  [key: string]: {
+    nativeName: string;
+  };
+};
+
+const lngs: TranslationObj = {
+  pt: { nativeName: "PT" },
+  es: { nativeName: "ES" },
+};
+
 const spanStyle: React.CSSProperties = {
   padding: "20px",
   background: "#000000aa",
@@ -36,66 +49,68 @@ const divStyle: React.CSSProperties = {
   padding: "1rem",
 };
 
-const slideImages = [
-  {
-    url: "./mais_fotos/patio_piscina.jpg",
-    caption: "Patio Piscina",
-  },
-  {
-    url: "./img-1.jpg",
-    caption: "Por do sol",
-  },
-  {
-    url: "./img-2.jpg",
-    caption: "Café da manhã",
-  },
-  {
-    url: "./img-3.jpg",
-    caption: "Pátio Interno",
-  },
-  {
-    url: "./img-4.jpg",
-    caption: "Parque",
-  },
-  {
-    url: "./img-5.jpg",
-    caption: "Redário",
-  },
-  {
-    url: "./img-6.jpg",
-    caption: "Área de Convivência",
-  },
-  {
-    url: "./img-7.jpg",
-    caption: "Área de Convivência e Leitura",
-  },
-  {
-    url: "./img-8.jpg",
-    caption: "Piscina",
-  },
-  {
-    url: "./img-9.jpg",
-    caption: "Vista para o mar",
-  },
-];
-
 interface PageProps {
   aviso: string;
 }
 
 function HomePage({ aviso }: PageProps) {
+  const { t, i18n } = useTranslation();
+
   const Atracoes: string[] = [
-    "Belezas naturais",
-    "Delicioso café da manhã",
-    "Tempo de qualidade com aqueles que se ama",
-    "Ambiente familiar",
-    "Comodidade e tranquilidade em nosso belíssimo Litoral Gaúcho",
-    "Salas de estar com Tv",
-    "Sala de leitura com redes para descanso",
-    "Espaço com churrasqueira e jogos",
-    "Área verde para vôlei e futebol, espaço infantil",
-    "Pátio interno com bar, piscina aquecida adulto e infantil",
-    "Sauna",
+    t("page.home.features.1"),
+    t("page.home.features.2"),
+    t("page.home.features.3"),
+    t("page.home.features.4"),
+    t("page.home.features.5"),
+    t("page.home.features.6"),
+    t("page.home.features.7"),
+    t("page.home.features.8"),
+    t("page.home.features.9"),
+    t("page.home.features.10"),
+    t("page.home.features.11"),
+  ];
+
+  const slideImages = [
+    {
+      url: "./mais_fotos/patio_piscina.jpg",
+      caption: t("page.home.imagesDescriptions.1"),
+    },
+    {
+      url: "./img-1.jpg",
+      caption: t("page.home.imagesDescriptions.2"),
+    },
+    {
+      url: "./img-2.jpg",
+      caption: t("page.home.imagesDescriptions.3"),
+    },
+    {
+      url: "./img-3.jpg",
+      caption: t("page.home.imagesDescriptions.4"),
+    },
+    {
+      url: "./img-4.jpg",
+      caption: t("page.home.imagesDescriptions.5"),
+    },
+    {
+      url: "./img-5.jpg",
+      caption: t("page.home.imagesDescriptions.6"),
+    },
+    {
+      url: "./img-6.jpg",
+      caption: t("page.home.imagesDescriptions.7"),
+    },
+    {
+      url: "./img-7.jpg",
+      caption: t("page.home.imagesDescriptions.8"),
+    },
+    {
+      url: "./img-8.jpg",
+      caption: t("page.home.imagesDescriptions.9"),
+    },
+    {
+      url: "./img-9.jpg",
+      caption: t("page.home.imagesDescriptions.10"),
+    },
   ];
 
   function buttonClickHandler(url: string) {
@@ -105,27 +120,18 @@ function HomePage({ aviso }: PageProps) {
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
-        <h2 id={styles.title}>Bem vindo!</h2>
+        <h2 id={styles.title}>{t("page.home.title")}</h2>
       </div>
 
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
       <div className={styles.innerContent}>
-        <section className={styles.inicio}>
-          Se ficar no litoral gaúcho já é incrível, imagine o prazer de estar
-          hospedado a beira mar, cercado de belezas naturais, diversão e muito
-          conforto! O Hotel Sereia oferece uma estrutura completa de lazer para
-          você aproveitar ao máximo suas férias! Arroio do Sal, uma tranquila
-          cidade no litoral do Rio Grande do Sul, possui toda a estrutura para
-          que você desfrute suas férias. Aqui está localizado o Hotel Sereia que
-          oferece apartamentos com TV e frigobar de frente para o mar. O Hotel
-          também possui salão de jogos, de leitura, sauna e piscina.
-        </section>
+        <section className={styles.inicio}>{t("page.home.greetings")}</section>
 
         <Line />
 
         <section className={styles.split}>
           <div className={styles.atracoes}>
-            <h2>Venha Aproveitar!</h2>
+            <h2>{t("page.home.enjoy")}</h2>
             <ul>
               {Atracoes.map((atracao: string) => {
                 return <li>{atracao}</li>;
@@ -154,7 +160,7 @@ function HomePage({ aviso }: PageProps) {
         <Line />
 
         <section>
-          <h3>Encontre-nos através do menu Social ou contatos abaixo</h3>
+          <h3>{t("page.home.findUs")}</h3>
           <div className={styles.buttonWrapper}>
             <Button
               text={"WhatsApp"}
@@ -166,12 +172,12 @@ function HomePage({ aviso }: PageProps) {
               }
             />
             <Button
-              text={"Celular"}
+              text={t("page.home.contacts.phone")}
               Icon={<BsPhoneFill />}
               onClick={() => buttonClickHandler("tel:51993383992")}
             />
             <Button
-              text={"Localização"}
+              text={t("page.home.contacts.location")}
               Icon={<FaMapMarkerAlt />}
               onClick={() =>
                 buttonClickHandler(
@@ -196,9 +202,11 @@ interface Apartamento {
 }
 
 function Acomodacoes({ aviso }: PageProps) {
+  const { t, i18n } = useTranslation();
+
   const apartamentosData: Apartamento[] = [
     {
-      nome: "Vista Mar/Serra simples",
+      nome: t("page.booking.table.line1"),
       "1pessoa": "190,00",
       "2pessoas": "290,00",
       "3pessoas": " - ",
@@ -206,7 +214,7 @@ function Acomodacoes({ aviso }: PageProps) {
       "5pessoas": " - ",
     },
     {
-      nome: "Vista Mar 1º Mar",
+      nome: t("page.booking.table.line2"),
       "1pessoa": "290,00",
       "2pessoas": "370,00",
       "3pessoas": " - ",
@@ -214,7 +222,7 @@ function Acomodacoes({ aviso }: PageProps) {
       "5pessoas": " - ",
     },
     {
-      nome: "Vista Piscina",
+      nome: t("page.booking.table.line3"),
       "1pessoa": "270,00",
       "2pessoas": "350,00",
       "3pessoas": "450,00",
@@ -222,7 +230,7 @@ function Acomodacoes({ aviso }: PageProps) {
       "5pessoas": " - ",
     },
     {
-      nome: "Lateral Mar e Vista Serra",
+      nome: t("page.booking.table.line4"),
       "1pessoa": "280,00",
       "2pessoas": "340,00",
       "3pessoas": "450,00",
@@ -230,7 +238,7 @@ function Acomodacoes({ aviso }: PageProps) {
       "5pessoas": " - ",
     },
     {
-      nome: "Conjugado Vista Mar 1º Andar",
+      nome: t("page.booking.table.line5"),
       "1pessoa": " - ",
       "2pessoas": "390,00",
       "3pessoas": "510,00",
@@ -238,7 +246,7 @@ function Acomodacoes({ aviso }: PageProps) {
       "5pessoas": " - ",
     },
     {
-      nome: "Conjugado Vista Mar, 02 banheiros com mini cozinha",
+      nome: t("page.booking.table.line6"),
       "1pessoa": " - ",
       "2pessoas": " - ",
       "3pessoas": "520,00",
@@ -246,10 +254,10 @@ function Acomodacoes({ aviso }: PageProps) {
       "5pessoas": "660,00",
     },
     {
-      nome: "Conjugado Vista Serra/Pátio com mini cozinha",
+      nome: t("page.booking.table.line7"),
       "1pessoa": " - ",
       "2pessoas": "390,00",
-      "3pessoas": "490,00",
+      "3pessoas": "510,00",
       "4pessoas": "580,00",
       "5pessoas": "640,00",
     },
@@ -257,7 +265,7 @@ function Acomodacoes({ aviso }: PageProps) {
 
   const apartamentoSemServico: Apartamento[] = [
     {
-      nome: "Conjugado Vista Mar, 02 banheiros com mini cozinha",
+      nome: t("page.booking.table2.line1"),
       "1pessoa": " - ",
       "2pessoas": " - ",
       "3pessoas": "380,00",
@@ -265,7 +273,7 @@ function Acomodacoes({ aviso }: PageProps) {
       "5pessoas": "480,00",
     },
     {
-      nome: "Conjugado Vista Serra/Pátio com mini cozinha",
+      nome: t("page.booking.table2.line2"),
       "1pessoa": " - ",
       "2pessoas": "300,00",
       "3pessoas": "370,00",
@@ -281,40 +289,38 @@ function Acomodacoes({ aviso }: PageProps) {
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
-        <h2 id={styles.title}>Acomodações</h2>
+        <h2 id={styles.title}>{t("page.booking.title")}</h2>
       </div>
 
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
         <p style={{ marginBottom: "3rem" }}>
-          Valores para a alta temporada de{" "}
-          <span className={styles.destaque}>20/12/2023</span> à{" "}
+          {t("page.booking.bookDisclaimer.part1")}
+          <span className={styles.destaque}>20/12/2023</span>
+          {t("page.booking.bookDisclaimer.part2")}
           <span className={styles.destaque}>28/02/2024</span>
         </p>
 
         <p style={{ textAlign: "center", margin: "0 auto" }}>
-          Para se informar sobre um apartamento clique no nome dele e nos mande
-          um Whats!
+          {t("page.booking.info")}
         </p>
-        <h3>
-          Preços em reais (R$) por apartamento/por noite com café da manhã
-        </h3>
+        <h3>{t("page.booking.pricesDisclaimer")}</h3>
         <div style={{ textAlign: "center", margin: "0 auto" }}>
-          <h3>Reservas com antecedência</h3>
-          <p>Apartamentos padrão: 5 dias</p>
-          <p>Apartamentos com mini cozinha: 7 dias</p>
+          <h3>{t("page.booking.reservations.part1")}</h3>
+          <p>{t("page.booking.reservations.part2")}</p>
+          <p>{t("page.booking.reservations.part3")}</p>
         </div>
 
         <table cellSpacing={0}>
           <thead>
             <tr>
-              <th>Apartamentos</th>
-              <th>1 Pessoa</th>
-              <th>2 Pessoa</th>
-              <th>3 Pessoa</th>
-              <th>4 Pessoa</th>
-              <th>5 Pessoa</th>
+              <th>{t("page.booking.headers.ap")}</th>
+              <th>{t("page.booking.headers.one")}</th>
+              <th>{t("page.booking.headers.two")}</th>
+              <th>{t("page.booking.headers.three")}</th>
+              <th>{t("page.booking.headers.four")}</th>
+              <th>{t("page.booking.headers.five")}</th>
             </tr>
           </thead>
           <tbody>
@@ -329,7 +335,9 @@ function Acomodacoes({ aviso }: PageProps) {
                     className={styles.apNome}
                     onClick={() =>
                       apClickHandler(
-                        `https://wa.me/555193383992?text=Olá! Vim pelo site, gostaria de informações sobre o ${ap.nome}`
+                        `https://wa.me/555193383992?text=${t(
+                          "page.booking.customMessage"
+                        )} ${ap.nome}`
                       )
                     }
                   >
@@ -345,28 +353,25 @@ function Acomodacoes({ aviso }: PageProps) {
             })}
           </tbody>
         </table>
-        <span className={styles.observ}>
-          * Apto Simples com ventilador de teto. Demais aptos com
-          ar-condicionado, sendo que nos conjugados o ar-condicionado (12.000
-          Btus) é em apenas um dos quartos e no outro quarto tem ventilador de
-          teto.
-        </span>
+        <span className={styles.observ}>{t("page.booking.table.obs")}</span>
 
         <Line />
 
         <h3>
-          Preços em reais (R$) no apartamento com mini cozinha/por noite{" "}
-          <span style={{ color: "red" }}>SEM SERVIÇOS**</span>
+          {t("page.booking.table2.disclaimer.part1")}
+          <span style={{ color: "red" }}>
+            {t("page.booking.table2.disclaimer.part2")}
+          </span>
         </h3>
         <table cellSpacing={0}>
           <thead>
             <tr>
-              <th>Apartamentos</th>
-              <th>1 Pessoa</th>
-              <th>2 Pessoa</th>
-              <th>3 Pessoa</th>
-              <th>4 Pessoa</th>
-              <th>5 Pessoa</th>
+              <th>{t("page.booking.headers.ap")}</th>
+              <th>{t("page.booking.headers.one")}</th>
+              <th>{t("page.booking.headers.two")}</th>
+              <th>{t("page.booking.headers.three")}</th>
+              <th>{t("page.booking.headers.four")}</th>
+              <th>{t("page.booking.headers.five")}</th>
             </tr>
           </thead>
           <tbody>
@@ -397,29 +402,26 @@ function Acomodacoes({ aviso }: PageProps) {
             })}
           </tbody>
         </table>
-        <span className={styles.observ}>
-          * Não inclui café da manhã, roupas de cama e banho e serviço de
-          limpeza diária ** Taxa de limpeza ao final da estadia R$ 180,00
-        </span>
+        <span className={styles.observ}>{t("page.booking.table2.obs")}</span>
 
         <Line />
 
         <table cellSpacing={0}>
           <thead>
-            <th colSpan={2}>Tarifa para crianças</th>
+            <th colSpan={2}>{t("page.booking.headers.children")}</th>
           </thead>
           <tbody>
             <tr>
-              <td>Até 03 anos</td>
-              <td>Cortesia - Berço bebê mediante solicitação</td>
+              <td>{t("page.booking.table3.line1.part1")}</td>
+              <td>{t("page.booking.table3.line1.part2")}</td>
             </tr>
             <tr className={styles.odd}>
-              <td>04 à 10 anos</td>
+              <td>{t("page.booking.table3.line2.part1")}</td>
               <td rowSpan={3}>
-                01 Criança desconto de 10% aplicado ao número total de pessoas
-                <br></br>02 Crianças desconto de 15% aplicado ao número total de
-                pessoas <br></br>03 Crianças desconto de 20% aplicado ao número
-                total de pessoas
+                {t("page.booking.table3.line2.part2")}
+                <br></br>
+                {t("page.booking.table3.line2.part3")} <br></br>
+                {t("page.booking.table3.line2.part4")}
               </td>
             </tr>
           </tbody>
@@ -427,19 +429,19 @@ function Acomodacoes({ aviso }: PageProps) {
 
         <Line />
 
-        <div className={styles.disclaimer}>
-          Taxa de Garagem: R$ 30,00 a diária
-        </div>
+        <div className={styles.disclaimer}>{t("page.booking.garage")}</div>
       </div>
     </div>
   );
 }
 
 function ComoChegar({ aviso }: PageProps) {
+  const { t, i18n } = useTranslation();
+
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
-        <h2 id={styles.title}>Como chegar</h2>
+        <h2 id={styles.title}>{t("page.location.title")}</h2>
       </div>
 
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
@@ -461,18 +463,9 @@ function ComoChegar({ aviso }: PageProps) {
           </div>
 
           <div className={styles.directions}>
-            <p>Para chegar no Hotel Sereia é extremamente simples!</p>
-            <p>
-              Ao entrar em Arroio do Sal pela entrada principal (Av. Assis
-              Brasil) basta segui-la até o fim, na Av. Beira Mar, faça a curva à
-              direita, após isso ficamos na segunda quadra à sua direita.
-            </p>
-
-            <p>
-              Enquanto se encaminhas até nós, deves passar por diversos
-              restaurantes, vale uma anotação para visitá-los depois, e o mais
-              importante, a nossa belíssima praia fica logo à nossa frente!
-            </p>
+            <p>{t("page.location.first")}</p>
+            <p>{t("page.location.seccond")}</p>
+            <p>{t("page.location.third")}</p>
           </div>
         </div>
       </div>
@@ -486,73 +479,75 @@ interface images {
 }
 
 function MaisFotos({ aviso }: PageProps) {
+  const { t, i18n } = useTranslation();
+
   const imagesList: images[] = [
     {
       url: "./mais_fotos/casal_vista_mar.jpg",
-      title: "Apartamento casal Vista Mar",
+      title: t("page.pictures.pictureList.1"),
     },
     {
       url: "./mais_fotos/casal_vista_mar_ar_tv.jpg",
-      title: "Apartamento casal Vista Mar",
+      title: t("page.pictures.pictureList.1"),
     },
     {
       url: "./mais_fotos/casal_vista_mar_vista.jpg",
-      title: "Apartamento casal Vista Mar",
+      title: t("page.pictures.pictureList.1"),
     },
     {
       url: "./mais_fotos/conjugado_vista_mar.jpg",
-      title: "Conjugado Vista Mar",
+      title: t("page.pictures.pictureList.2"),
     },
     {
       url: "./mais_fotos/conjugado_vista_mar_2.jpg",
-      title: "Conjugado Vista Mar",
+      title: t("page.pictures.pictureList.2"),
     },
     {
       url: "./mais_fotos/conjugado_vista_mar_vista.jpg",
-      title: "Conjugado Vista Mar",
+      title: t("page.pictures.pictureList.2"),
     },
     {
       url: "./mais_fotos/conjugado_vista_mar_terreo.jpg",
-      title: "Conjugado Térreo",
+      title: t("page.pictures.pictureList.3"),
     },
     {
       url: "./mais_fotos/conjugado_vista_mar_terreo_2.jpg",
-      title: "Conjugado Térreo",
+      title: t("page.pictures.pictureList.3"),
     },
     {
       url: "./mais_fotos/conjugado_vista_mar_terreo_vista.jpg",
-      title: "Conjugado Térreo",
+      title: t("page.pictures.pictureList.3"),
     },
     {
       url: "./mais_fotos/conjugado_vista_mar_tv_cozinha.jpg",
-      title: "Conjugado Térreo",
+      title: t("page.pictures.pictureList.3"),
     },
     {
       url: "./mais_fotos/patio_piscina.jpg",
-      title: "Pátio Interno",
+      title: t("page.pictures.pictureList.4"),
     },
     {
       url: "./mais_fotos/patio_piscina_2.jpg",
-      title: "Pátio Interno",
+      title: t("page.pictures.pictureList.4"),
     },
     {
       url: "./mais_fotos/patio_piscina_3.jpg",
-      title: "Pátio Interno - Piscina",
+      title: t("page.pictures.pictureList.5"),
     },
     {
       url: "./mais_fotos/sala_estar.jpg",
-      title: "Sala de Estar",
+      title: t("page.pictures.pictureList.6"),
     },
     {
       url: "./mais_fotos/sala_estar_redario.jpg",
-      title: "Redário",
+      title: t("page.pictures.pictureList.7"),
     },
   ];
 
   return (
     <div className={styles.content}>
       <div id={styles.titleWrapper}>
-        <h2 id={styles.title}>Mais fotos</h2>
+        <h2 id={styles.title}>{t("page.pictures.title")}</h2>
       </div>
 
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
@@ -565,7 +560,7 @@ function MaisFotos({ aviso }: PageProps) {
             marginBottom: "2rem",
           }}
         >
-          Clique sob a imagem para expandir
+          {t("page.pictures.tip")}
         </p>
 
         <div className={styles.imagesGrouping}>
