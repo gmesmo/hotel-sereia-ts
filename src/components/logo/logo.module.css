@@ -56,10 +56,20 @@ a:has(> .logo) {
 @media (max-width: 767px) {
   .logo {
     width: 75dvw;
-    margin-top: 2dvh;
+    margin-top: 3rem;
   }
 
   .backRibbon {
-    top: 20.5dvh;
+    top: 10rem;
+  }
+}
+
+@media (orientation: landscape) {
+  .logo {
+    width: 50dvw;
+  }
+
+  .backRibbon {
+    display: none;
   }
 }

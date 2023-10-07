@@ -1,6 +1,6 @@
 .Social {
   width: 50dvw;
-  height: 20dvh;
+  height: 11rem;
   background-color: var(--destaque);
 
   position: fixed;
@@ -36,10 +36,10 @@
   font-size: 1.5rem;
   letter-spacing: 5px;
 
-  transform: rotate(-90deg) translate(0, -0.5rem);
+  transform: rotate(-90deg) translate(0rem, -0.5rem);
 
-  width: 20dvh;
-  height: 20dvh;
+  width: 11rem;
+  height: 11rem;
   padding: 1.5rem;
 
   background: linear-gradient(135deg, #ccc3 25%, transparent 25%) -40px 0,
