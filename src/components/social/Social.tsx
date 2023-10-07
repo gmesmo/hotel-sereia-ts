@@ -5,18 +5,7 @@ import { SocialButton } from "../buttons/Button";
 import { BsInstagram } from "react-icons/bs";
 import { ImWhatsapp, ImFacebook } from "react-icons/im";
 
-import { Trans, useTranslation } from "react-i18next";
-
-type TranslationObj = {
-  [key: string]: {
-    nativeName: string;
-  };
-};
-
-const lngs: TranslationObj = {
-  pt: { nativeName: "PT" },
-  es: { nativeName: "ES" },
-};
+import { useTranslation } from "react-i18next";
 
 function Social() {
   const { t, i18n } = useTranslation();

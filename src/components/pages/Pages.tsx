@@ -13,18 +13,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
-import { Trans, useTranslation } from "react-i18next";
-
-type TranslationObj = {
-  [key: string]: {
-    nativeName: string;
-  };
-};
-
-const lngs: TranslationObj = {
-  pt: { nativeName: "PT" },
-  es: { nativeName: "ES" },
-};
+import { useTranslation } from "react-i18next";
 
 const spanStyle: React.CSSProperties = {
   padding: "20px",
@@ -202,7 +191,7 @@ interface Apartamento {
 }
 
 function Acomodacoes({ aviso }: PageProps) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const apartamentosData: Apartamento[] = [
     {

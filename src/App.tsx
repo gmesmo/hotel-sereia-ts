@@ -19,19 +19,8 @@ import Social from "./components/social/Social";
 
 import { useTranslation } from "react-i18next";
 
-type TranslationObj = {
-  [key: string]: {
-    nativeName: string;
-  };
-};
-
-const lngs: TranslationObj = {
-  pt: { nativeName: "PT" },
-  es: { nativeName: "ES" },
-};
-
 function App() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const aviso: string = t("disclaimer");
 
