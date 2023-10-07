@@ -66,8 +66,8 @@ i18n
             booking: {
               title: "Acomodações",
               bookDisclaimer: {
-                part1: "Valores válidos desde el ",
-                part2: " hasta el ",
+                part1: "Valores válidos de ",
+                part2: " à ",
               },
               info: "Para se informar sobre um apartamento clique no nome dele e nos mande um Whats!",
               pricesDisclaimer:
