@@ -43,7 +43,7 @@ interface PageProps {
 }
 
 function HomePage({ aviso }: PageProps) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const Atracoes: string[] = [
     t("page.home.features.1"),
@@ -425,7 +425,7 @@ function Acomodacoes({ aviso }: PageProps) {
 }
 
 function ComoChegar({ aviso }: PageProps) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.content}>
@@ -468,7 +468,7 @@ interface images {
 }
 
 function MaisFotos({ aviso }: PageProps) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const imagesList: images[] = [
     {

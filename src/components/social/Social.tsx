@@ -8,7 +8,7 @@ import { ImWhatsapp, ImFacebook } from "react-icons/im";
 import { useTranslation } from "react-i18next";
 
 function Social() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const socialRef = useRef<HTMLDivElement | null>(null);
