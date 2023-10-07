@@ -121,7 +121,7 @@ i18n
                     "03 Crianças desconto de 20% aplicado ao número total de pessoas",
                 },
               },
-              garage: "Taxa de Garagem: R$ 30,00 a diária",
+              garage: "Taxa de Garagem coberta: R$ 30,00 a diária",
               customMessage:
                 "Olá! Vim pelo site, gostaria de informações sobre o ",
             },
@@ -255,7 +255,7 @@ i18n
                     "03 Niños: 20% de descuento aplicado al número total de personas",
                 },
               },
-              garage: "Tarifa de Estacionamiento: R$ 30.00 por día",
+              garage: "Tarifa de Cochera Cubierta: R$ 30,00 por día",
               customMessage:
                 "¡Hola! Llegué al sitio web, me gustaría obtener información sobre el ",
             },
