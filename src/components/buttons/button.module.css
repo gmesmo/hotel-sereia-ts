@@ -94,10 +94,12 @@ div:has(> .socialButton) {
   cursor: pointer;
 }
 
-@media (max-width: 767px) {
+@media only screen and (pointer: coarse) {
   .main_link {
-    width: 29dvw;
+    width: 25dvw;
     font-size: 1rem;
+    margin: 0 0.5rem;
+    /* max-width: none; */
   }
 
   .main_link.small {
