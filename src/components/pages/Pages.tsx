@@ -14,6 +14,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
+import EasyBooking from "../easybooking/EasyBooking";
 
 const spanStyle: React.CSSProperties = {
   padding: "20px",
@@ -284,6 +285,8 @@ function Acomodacoes({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
+        <EasyBooking />
+
         <p style={{ marginBottom: "3rem" }}>
           {t("page.booking.bookDisclaimer.part1")}
           <span className={styles.destaque}>20/12/2023</span>
@@ -304,12 +307,12 @@ function Acomodacoes({ aviso }: PageProps) {
         <table cellSpacing={0}>
           <thead>
             <tr>
-              <th>{t("page.booking.headers.ap")}</th>
-              <th>{t("page.booking.headers.one")}</th>
-              <th>{t("page.booking.headers.two")}</th>
-              <th>{t("page.booking.headers.three")}</th>
-              <th>{t("page.booking.headers.four")}</th>
-              <th>{t("page.booking.headers.five")}</th>
+              <td>{t("page.booking.headers.ap")}</td>
+              <td>{t("page.booking.headers.one")}</td>
+              <td>{t("page.booking.headers.two")}</td>
+              <td>{t("page.booking.headers.three")}</td>
+              <td>{t("page.booking.headers.four")}</td>
+              <td>{t("page.booking.headers.five")}</td>
             </tr>
           </thead>
           <tbody>
@@ -355,12 +358,12 @@ function Acomodacoes({ aviso }: PageProps) {
         <table cellSpacing={0}>
           <thead>
             <tr>
-              <th>{t("page.booking.headers.ap")}</th>
-              <th>{t("page.booking.headers.one")}</th>
-              <th>{t("page.booking.headers.two")}</th>
-              <th>{t("page.booking.headers.three")}</th>
-              <th>{t("page.booking.headers.four")}</th>
-              <th>{t("page.booking.headers.five")}</th>
+              <td>{t("page.booking.headers.ap")}</td>
+              <td>{t("page.booking.headers.one")}</td>
+              <td>{t("page.booking.headers.two")}</td>
+              <td>{t("page.booking.headers.three")}</td>
+              <td>{t("page.booking.headers.four")}</td>
+              <td>{t("page.booking.headers.five")}</td>
             </tr>
           </thead>
           <tbody>
@@ -397,7 +400,7 @@ function Acomodacoes({ aviso }: PageProps) {
 
         <table cellSpacing={0}>
           <thead>
-            <th colSpan={2}>{t("page.booking.headers.children")}</th>
+            <td colSpan={2}>{t("page.booking.headers.children")}</td>
           </thead>
           <tbody>
             <tr>

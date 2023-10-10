@@ -1,0 +1,24 @@
+.EasyBooking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 75%;
+  border: 2px solid var(--azul-base);
+
+  margin: 0 auto;
+}
+
+.EasyHeading {
+  width: 100%;
+  background-color: var(--azul-base);
+  color: white;
+
+  padding: 0.5rem;
+
+  font-family: var(--ff-text);
+}
+
+.SliderWrapper {
+  width: 50%;
+}
