@@ -131,10 +131,9 @@ table thead {
   background-color: var(--azul-base);
 }
 
-table thead td {
+table th {
   padding: 0.5rem 1vw;
   color: white;
-  font-weight: 600;
 }
 
 table tr {

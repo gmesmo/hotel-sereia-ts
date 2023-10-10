@@ -13,10 +13,19 @@ const EasyBooking: React.FC = () => {
 
   const [crianca, setCrianca] = useState<number | undefined>(0);
 
-  const handleValorChange = (event: Event, novoValor: number | number[]) => {
-    console.log(event);
+  const handlePessoasChange = (novoValor: number | number[]) => {
+    const novoValorNumber = Array.isArray(novoValor) ? novoValor[0] : novoValor;
+    setPessoas(novoValorNumber);
+    if (crianca >= novoValorNumber - 1) {
+      setCrianca(novoValorNumber - 1);
+    }
+  };
 
-    setPessoas(Array.isArray(novoValor) ? novoValor[0] : novoValor);
+  const handleCriancaChange = (novoValor: number | number[]) => {
+    const novoValorNumber = Array.isArray(novoValor) ? novoValor[0] : novoValor;
+    const valor =
+      novoValorNumber <= pessoas - 1 ? novoValorNumber : pessoas - 1;
+    setCrianca(valor);
   };
 
   return (
@@ -24,30 +33,32 @@ const EasyBooking: React.FC = () => {
       <p className={styles.EasyHeading}>Seletor facilitado</p>
 
       <div className={styles.SliderWrapper}>
-        <label htmlFor="valor">Número de Pessoas:</label>
+        <label htmlFor="valor">Número total de pessoas:</label>
         <Slider
+          name={"pessoas"}
           value={pessoas || 1}
           min={1}
           max={5}
           step={1}
-          onChange={handleValorChange}
-          valueLabelDisplay="auto"
+          onChange={(_, novoValor) => handlePessoasChange(novoValor)}
+          valueLabelDisplay="on"
           valueLabelFormat={(value) => value.toString()}
         />
       </div>
 
-      {/* <div className={styles.SliderWrapper}>
-        <label htmlFor="valor">Número de Pessoas:</label>
+      <div className={styles.SliderWrapper}>
+        <label htmlFor="valor">Número de Crianças:</label>
         <Slider
-          value={pessoas || 1}
-          min={1}
-          max={5}
+          name={"criancas"}
+          value={crianca || 0}
+          min={0}
+          max={3}
           step={1}
-          onChange={handleValorChange}
-          valueLabelDisplay="auto"
+          onChange={(_, novoValor) => handleCriancaChange(novoValor)}
+          valueLabelDisplay="on"
           valueLabelFormat={(value) => value.toString()}
         />
-      </div> */}
+      </div>
       <p>Valor selecionado: {pessoas}</p>
 
       <LocalizationProvider dateAdapter={AdapterDayjs}>

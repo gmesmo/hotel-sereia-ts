@@ -307,18 +307,19 @@ function Acomodacoes({ aviso }: PageProps) {
         <table cellSpacing={0}>
           <thead>
             <tr>
-              <td>{t("page.booking.headers.ap")}</td>
-              <td>{t("page.booking.headers.one")}</td>
-              <td>{t("page.booking.headers.two")}</td>
-              <td>{t("page.booking.headers.three")}</td>
-              <td>{t("page.booking.headers.four")}</td>
-              <td>{t("page.booking.headers.five")}</td>
+              <th>{t("page.booking.headers.ap")}</th>
+              <th>{t("page.booking.headers.one")}</th>
+              <th>{t("page.booking.headers.two")}</th>
+              <th>{t("page.booking.headers.three")}</th>
+              <th>{t("page.booking.headers.four")}</th>
+              <th>{t("page.booking.headers.five")}</th>
             </tr>
           </thead>
           <tbody>
             {apartamentosData.map((ap, index) => {
               return (
                 <tr
+                  key={`ap_${index}`}
                   className={
                     index % 2 === 0 ? `${styles.even}` : `${styles.odd}`
                   }
@@ -358,18 +359,19 @@ function Acomodacoes({ aviso }: PageProps) {
         <table cellSpacing={0}>
           <thead>
             <tr>
-              <td>{t("page.booking.headers.ap")}</td>
-              <td>{t("page.booking.headers.one")}</td>
-              <td>{t("page.booking.headers.two")}</td>
-              <td>{t("page.booking.headers.three")}</td>
-              <td>{t("page.booking.headers.four")}</td>
-              <td>{t("page.booking.headers.five")}</td>
+              <th>{t("page.booking.headers.ap")}</th>
+              <th>{t("page.booking.headers.one")}</th>
+              <th>{t("page.booking.headers.two")}</th>
+              <th>{t("page.booking.headers.three")}</th>
+              <th>{t("page.booking.headers.four")}</th>
+              <th>{t("page.booking.headers.five")}</th>
             </tr>
           </thead>
           <tbody>
             {apartamentoSemServico.map((ap, index) => {
               return (
                 <tr
+                  key={`apSS_${index}`}
                   className={
                     index % 2 === 0 ? `${styles.even}` : `${styles.odd}`
                   }
@@ -400,7 +402,9 @@ function Acomodacoes({ aviso }: PageProps) {
 
         <table cellSpacing={0}>
           <thead>
-            <td colSpan={2}>{t("page.booking.headers.children")}</td>
+            <tr>
+              <th colSpan={2}>{t("page.booking.headers.children")}</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
