@@ -11,25 +11,33 @@ import "dayjs/locale/pt";
 import styles from "./EasyBooking.module.css";
 import dayjs, { Dayjs } from "dayjs";
 
-const EasyBooking: React.FC = () => {
+interface Apartamento {
+  nome: string;
+  "1pessoa": string;
+  "2pessoas": string;
+  "3pessoas": string;
+  "4pessoas": string;
+  "5pessoas": string;
+}
+
+interface EasyBookingProps {
+  apartamentosData: Apartamento[];
+}
+
+const EasyBooking: React.FC<EasyBookingProps> = ({ apartamentosData }) => {
   const [pessoas, setPessoas] = useState<number | undefined>(1);
   const [crianca, setCrianca] = useState<number | undefined>(0);
   const [primeiraData, setPrimeiraData] = useState(dayjs());
+  const [segundaData, setSegundaData] = useState(dayjs().add(1, "day"));
+  const [diferenca, setDiferenca] = useState(1);
 
   const handlePessoasChange = (novoValor: number | number[]) => {
     const novoValorNumber = Array.isArray(novoValor) ? novoValor[0] : novoValor;
     setPessoas(novoValorNumber);
-    // if ((crianca || 0) >= novoValorNumber - 1) {
-    // setCrianca(novoValorNumber - 1);
   };
 
   const handleCriancaChange = (novoValor: number | number[]) => {
     const novoValorNumber = Array.isArray(novoValor) ? novoValor[0] : novoValor;
-    // const pessoasDefinido = pessoas ?? 0;
-    // const valor =
-    //   novoValorNumber <= pessoasDefinido - 1
-    //     ? novoValorNumber
-    //     : pessoasDefinido - 1;
     setCrianca(novoValorNumber);
     if (novoValorNumber + (pessoas || 1) > 5) {
       setPessoas(5 - novoValorNumber);
@@ -38,6 +46,14 @@ const EasyBooking: React.FC = () => {
 
   const handleFirstDateChange = (novoValor: Dayjs) => {
     setPrimeiraData(dayjs(novoValor));
+    const dayDiff = segundaData.diff(novoValor, "day");
+    setDiferenca(dayDiff);
+  };
+
+  const handleSecondDateChange = (novoValor: Dayjs) => {
+    setSegundaData(dayjs(novoValor));
+    const dayDiff = novoValor.diff(primeiraData, "day");
+    setDiferenca(dayDiff);
   };
 
   return (
@@ -78,11 +94,18 @@ const EasyBooking: React.FC = () => {
             disablePast
             label={"Primeiro dia"}
             value={primeiraData}
-            onChange={(novoValor) =>
-              handleFirstDateChange(novoValor || dayjs())
-            }
+            onChange={(novoValor) => {
+              handleFirstDateChange(novoValor || dayjs());
+            }}
           />
-          <DatePicker disablePast label={"Último dia"} />
+          <DatePicker
+            disablePast
+            label={"Último dia"}
+            value={segundaData}
+            onChange={(novoValor) => {
+              handleSecondDateChange(novoValor || dayjs());
+            }}
+          />
         </LocalizationProvider>
       </div>
 
@@ -92,6 +115,25 @@ const EasyBooking: React.FC = () => {
       <p>
         Garagem coberta? <Switch defaultChecked />
       </p>
+
+      <div className={styles.Options}>
+        {apartamentosData.map((ap, index) => {
+          let key = `${pessoas}pessoa`;
+          if (pessoas !== 1) {
+            key = `${pessoas}pessoas`;
+          }
+
+          if (ap[key as keyof Apartamento] !== " - ") {
+            return (
+              <button key={`opc${index}`} className={styles.buttonOption}>
+                {ap.nome}
+                {parseFloat(ap[key as keyof Apartamento]) * diferenca}
+              </button>
+            );
+          }
+        })}
+      </div>
+
       <p className={styles.obs}>
         Serviço: Café da manhã, roupas de cama e banho e serviço de limpeza
         diária

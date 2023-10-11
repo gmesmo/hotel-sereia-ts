@@ -36,6 +36,33 @@
   width: 50%;
 }
 
-.obs {
+.Options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 80%;
+}
+
+.Options .buttonOption {
+  font-family: var(--ff-text);
   font-size: 1rem;
+
+  background-color: transparent;
+  border: 2px solid var(--azul-base);
+  color: var(--azul-base);
+  font-weight: 700;
+  cursor: pointer;
+
+  padding: 0.5rem;
+  width: 70%;
+}
+
+.obs {
+  background-color: var(--azul-base);
+  color: white;
+  width: 100%;
+  font-size: 1rem;
+  padding-top: 0.5rem;
 }

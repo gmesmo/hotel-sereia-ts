@@ -285,7 +285,7 @@ function Acomodacoes({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
-        <EasyBooking />
+        <EasyBooking apartamentosData={apartamentosData} />
 
         <p style={{ marginBottom: "3rem" }}>
           {t("page.booking.bookDisclaimer.part1")}
