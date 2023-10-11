@@ -4,6 +4,7 @@ import Slider from "@mui/material/Slider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import Switch from "@mui/material/Switch";
 import "@mui/material/styles";
 import "dayjs/locale/pt";
 
@@ -18,19 +19,21 @@ const EasyBooking: React.FC = () => {
   const handlePessoasChange = (novoValor: number | number[]) => {
     const novoValorNumber = Array.isArray(novoValor) ? novoValor[0] : novoValor;
     setPessoas(novoValorNumber);
-    if ((crianca || 0) >= novoValorNumber - 1) {
-      setCrianca(novoValorNumber - 1);
-    }
+    // if ((crianca || 0) >= novoValorNumber - 1) {
+    // setCrianca(novoValorNumber - 1);
   };
 
   const handleCriancaChange = (novoValor: number | number[]) => {
     const novoValorNumber = Array.isArray(novoValor) ? novoValor[0] : novoValor;
-    const pessoasDefinido = pessoas ?? 0;
-    const valor =
-      novoValorNumber <= pessoasDefinido - 1
-        ? novoValorNumber
-        : pessoasDefinido - 1;
-    setCrianca(valor);
+    // const pessoasDefinido = pessoas ?? 0;
+    // const valor =
+    //   novoValorNumber <= pessoasDefinido - 1
+    //     ? novoValorNumber
+    //     : pessoasDefinido - 1;
+    setCrianca(novoValorNumber);
+    if (novoValorNumber + (pessoas || 1) > 5) {
+      setPessoas(5 - novoValorNumber);
+    }
   };
 
   const handleFirstDateChange = (novoValor: Dayjs) => {
@@ -42,12 +45,12 @@ const EasyBooking: React.FC = () => {
       <p className={styles.EasyHeading}>Seletor facilitado</p>
 
       <div className={styles.SliderWrapper}>
-        <label htmlFor="valor">Número total de pessoas:</label>
+        <label htmlFor="valor">Número de Adultos:</label>
         <Slider
           name={"pessoas"}
           value={pessoas || 1}
           min={1}
-          max={5}
+          max={5 - (crianca || 0)}
           step={1}
           onChange={(_, novoValor) => handlePessoasChange(novoValor)}
           valueLabelDisplay="on"
@@ -66,13 +69,9 @@ const EasyBooking: React.FC = () => {
           onChange={(_, novoValor) => handleCriancaChange(novoValor)}
           valueLabelDisplay="on"
           valueLabelFormat={(value) => value.toString()}
-          sx={{
-            transition: "color 0.5s",
-            ...(pessoas === 1 ? { color: "red" } : {}),
-          }}
         />
       </div>
-
+      <label>Selecione o período</label>
       <div className={styles.DatesWrapper}>
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt">
           <DatePicker
@@ -87,7 +86,9 @@ const EasyBooking: React.FC = () => {
         </LocalizationProvider>
       </div>
 
-      <p>Valor selecionado: {pessoas}</p>
+      <p>
+        Serviço incluso? <Switch defaultChecked />
+      </p>
     </div>
   );
 };
