@@ -7,7 +7,6 @@
   border: 2px solid var(--azul-base);
 
   margin: 0 auto;
-  padding: 0 0 2rem 0;
 }
 
 .EasyHeading {
@@ -35,4 +34,8 @@
   justify-content: space-around;
 
   width: 50%;
+}
+
+.obs {
+  font-size: 1rem;
 }

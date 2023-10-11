@@ -89,6 +89,16 @@ const EasyBooking: React.FC = () => {
       <p>
         Serviço incluso? <Switch defaultChecked />
       </p>
+      <p>
+        Garagem coberta? <Switch defaultChecked />
+      </p>
+      <p className={styles.obs}>
+        Serviço: Café da manhã, roupas de cama e banho e serviço de limpeza
+        diária
+      </p>
+      <p className={styles.obs}>
+        Taxa de limpeza ao final da estadia: R$ 180,00
+      </p>
     </div>
   );
 };
