@@ -7,20 +7,17 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Switch from "@mui/material/Switch";
 import "@mui/material/styles";
 import "dayjs/locale/pt";
-
+import { ImWhatsapp } from "react-icons/im";
 import styles from "./EasyBooking.module.css";
 import dayjs, { Dayjs } from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
-import { ImWhatsapp } from "react-icons/im";
 
-// Adicione os plugins de UTC e timezone
+import { useTranslation } from "react-i18next";
+
 dayjs.extend(utc);
 dayjs.extend(timezone);
-
-// Configure o fuso horário para Brasília (BRT)
 dayjs.tz.setDefault("America/Sao_Paulo");
-
 interface Apartamento {
   nome: string;
   "1pessoa": string;
@@ -39,10 +36,15 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
   apartamentosData,
   apartamentoSemServico,
 }) => {
-  const [pessoas, setPessoas] = useState<number | undefined>(1);
-  const [crianca, setCrianca] = useState<number | undefined>(0);
-  const [primeiraData, setPrimeiraData] = useState(dayjs());
-  const [segundaData, setSegundaData] = useState(dayjs().add(1, "day"));
+  const { t } = useTranslation();
+
+  const [pessoas, setPessoas] = useState<number>(1);
+  const [crianca, setCrianca] = useState<number>(0);
+
+  const [primeiraData, setPrimeiraData] = useState(dayjs().startOf("day"));
+  const [segundaData, setSegundaData] = useState(
+    dayjs().add(1, "day").startOf("day")
+  );
   const [diferenca, setDiferenca] = useState(
     segundaData.diff(primeiraData, "day")
   );
@@ -65,9 +67,9 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
 
   const handleFirstDateChange = (novoValor: Dayjs | null) => {
     if (novoValor) {
-      setPrimeiraData(novoValor);
+      setPrimeiraData(novoValor.startOf("day")); // Configura a data no início do dia
       if (segundaData.isValid() && novoValor.isValid()) {
-        const dayDiff = segundaData.diff(novoValor, "day");
+        const dayDiff = segundaData.startOf("day").diff(novoValor, "day"); // Configura também a segunda data no início do dia
         setDiferenca(dayDiff);
       }
     }
@@ -75,20 +77,42 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
 
   const handleSecondDateChange = (novoValor: Dayjs | null) => {
     if (novoValor) {
-      setSegundaData(novoValor);
+      setSegundaData(novoValor.startOf("day")); // Configura a data no início do dia
       if (primeiraData.isValid() && novoValor.isValid()) {
-        const dayDiff = novoValor.diff(primeiraData, "day");
+        const dayDiff = novoValor.startOf("day").diff(primeiraData, "day"); // Configura também a primeira data no início do dia
         setDiferenca(dayDiff);
       }
     }
   };
 
+  const bookHandler = (
+    apName: string,
+    pessoasNum: number,
+    crianca: number,
+    data1: string,
+    data2: string,
+    servico: boolean,
+    garagem: boolean
+  ) => {
+    const message = `Olá! Gostaria de fazer uma reserva para%0A*${apName}*%0APara ${pessoasNum} pessoa(s) ${
+      crianca > 0 ? ` e ${crianca} crianca(s)` : ""
+    }%0A%0APeríodo:%0AInício: ${data1}%0AFim: ${data2}%0A%0A${
+      servico ? `Com Serviço` : `Sem Serviço`
+    }%0A${garagem ? `Com Garagem` : `Sem Garagem`}
+    `;
+
+    const url = `https://wa.me/555193383992?text=${message}`;
+    window.open(url, "_blank", "noreferrer");
+  };
+
   return (
     <div className={styles.EasyBooking}>
-      <p className={styles.EasyHeading}>Seletor facilitado</p>
+      <p className={styles.EasyHeading}>
+        {t("page.booking.easyBooking.title")}
+      </p>
 
       <div className={styles.SliderWrapper}>
-        <label htmlFor="valor">Número de Adultos:</label>
+        <label htmlFor="valor">{t("page.booking.easyBooking.adults")}</label>
         <Slider
           name={"pessoas"}
           value={pessoas || 1}
@@ -102,7 +126,7 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
       </div>
 
       <div className={styles.SliderWrapper}>
-        <label htmlFor="valor">Número de Crianças:</label>
+        <label htmlFor="valor">{t("page.booking.easyBooking.children")}</label>
         <Slider
           name={"criancas"}
           value={crianca || 0}
@@ -114,22 +138,26 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
           valueLabelFormat={(value) => value.toString()}
         />
       </div>
-      <label>Selecione o período</label>
+
+      <span className={styles.disc}>
+        {t("page.booking.easyBooking.childrenDisclaimer")}
+      </span>
+
+      <label>{t("page.booking.easyBooking.selectDate")}</label>
       <div className={styles.DatesWrapper}>
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt">
           <DatePicker
             disablePast
-            label={"Primeiro dia"}
+            label={t("page.booking.easyBooking.firstDay")}
             value={primeiraData}
             onChange={(novoValor) => {
-              handleFirstDateChange(novoValor || dayjs());
+              handleFirstDateChange(novoValor);
             }}
           />
           <DatePicker
-            label={"Último dia"}
-            value={segundaData}
+            label={t("page.booking.easyBooking.lastDay")}
             onChange={(novoValor) => {
-              handleSecondDateChange(novoValor || dayjs());
+              handleSecondDateChange(novoValor);
             }}
             minDate={primeiraData.add(1, "day")}
           />
@@ -137,7 +165,7 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
       </div>
 
       <p>
-        Serviço incluso?{" "}
+        {t("page.booking.easyBooking.services")}
         <Switch
           defaultChecked
           value={isServico}
@@ -147,7 +175,7 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
         />
       </p>
       <p>
-        Garagem coberta?{" "}
+        {t("page.booking.easyBooking.garage")}
         <Switch
           defaultChecked
           value={isGaragem}
@@ -160,10 +188,10 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
       <div className={styles.Options}>
         {(isServico ? apartamentosData : apartamentoSemServico).map(
           (ap, index) => {
-            let key = `${pessoas}pessoa`;
+            let key = `${(pessoas || 1) + (crianca || 0)}pessoa`;
             let disc = 0;
-            if (pessoas !== 1) {
-              key = `${pessoas}pessoas`;
+            if ((pessoas || 1) + (crianca || 0) !== 1) {
+              key = `${(pessoas || 1) + (crianca || 0)}pessoas`;
             }
             if (crianca === 1) {
               disc = 10;
@@ -190,8 +218,21 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
                 <button key={`opc${index}`} className={styles.buttonOption}>
                   <span className={styles.apNome}>{ap.nome}</span>
                   <span className={styles.apPreco}>R$ {valorFinal}</span>
-                  <span className={styles.apMessage}>
-                    <ImWhatsapp /> Reserve
+                  <span
+                    className={styles.apMessage}
+                    onClick={() =>
+                      bookHandler(
+                        ap.nome,
+                        pessoas,
+                        crianca,
+                        primeiraData.format("DD/MM/YYYY"),
+                        segundaData.format("DD/MM/YYYY"),
+                        isServico,
+                        isGaragem
+                      )
+                    }
+                  >
+                    <ImWhatsapp /> {t("page.booking.easyBooking.book")}
                   </span>
                 </button>
               );
@@ -199,18 +240,17 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
           }
         )}
         {!isServico && pessoas === 1 && (
-          <div style={{ color: "red" }}>
-            Não há opções disponíveis nessa seleção
+          <div style={{ color: "red", margin: "2rem" }}>
+            {t("page.booking.easyBooking.noOptions")}
           </div>
         )}
       </div>
 
       <p className={styles.obs}>
-        Serviço: Café da manhã, roupas de cama e banho e serviço de limpeza
-        diária
+        {t("page.booking.easyBooking.disclaimer.part1")}
       </p>
       <p className={styles.obs}>
-        Taxa de limpeza ao final da estadia: R$ 180,00
+        {t("page.booking.easyBooking.disclaimer.part2")}
       </p>
     </div>
   );

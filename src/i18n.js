@@ -25,7 +25,8 @@ i18n
             location: "Como chegar",
             pictures: "Mais fotos",
           },
-          disclaimer: "Retornamos dia 10/10!",
+          disclaimer:
+            "Para Fim de Ano e Carnaval consulte valores e disponibilidade",
           page: {
             home: {
               title: "Bem vindo!",
@@ -65,6 +66,24 @@ i18n
             },
             booking: {
               title: "Acomodações",
+              easyBooking: {
+                title: "Seletor Facilitado",
+                adults: "Número de adultos",
+                children: "Número de crianças",
+                childrenDisclaimer: "Crianças de 03 até 10 anos.",
+                selectDate: "Selecione o período",
+                firstDay: "Primeiro dia",
+                lastDay: "Último dia",
+                services: "Serviço incluso?",
+                garage: "Garagem coberta?",
+                book: "Reserve",
+                noOptions: "Não há opções disponíveis nessa seleção",
+                disclaimer: {
+                  part1:
+                    "Serviço: Café da manhã, roupas de cama e banho e serviço de limpeza diária",
+                  part2: "Taxa de limpeza ao final da estadia: R$ 180,00",
+                },
+              },
               bookDisclaimer: {
                 part1: "Valores válidos de ",
                 part2: " à ",
@@ -199,6 +218,24 @@ i18n
             },
             booking: {
               title: "Alojamientos",
+              easyBooking: {
+                title: "Selector Fácil",
+                adults: "Número de adultos",
+                children: "Número de niños",
+                childrenDisclaimer: "Niños de 03 a 10 años.",
+                selectDate: "Selecione o período",
+                firstDay: "Primer día",
+                lastDay: "Último día",
+                services: "¿Servicios incluidos?",
+                garage: "¿Cochera cubierta?",
+                book: "Reservar",
+                noOptions: "No hay opciones disponibles en esta selección",
+                disclaimer: {
+                  part1:
+                    "Servicios: Desayuno, ropa de cama y baño y servicio de limpieza diario",
+                  part2: "Cargo de limpieza al final de la estadía: $180,00",
+                },
+              },
               bookDisclaimer: {
                 part1: "Valores válidos desde el ",
                 part2: " hasta el ",
