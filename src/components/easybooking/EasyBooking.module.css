@@ -46,6 +46,9 @@
 }
 
 .Options .buttonOption {
+  display: flex;
+  justify-content: space-between;
+
   font-family: var(--ff-text);
   font-size: 1rem;
 
@@ -55,8 +58,59 @@
   font-weight: 700;
   cursor: pointer;
 
-  padding: 0.5rem;
   width: 70%;
+}
+
+.buttonOption span {
+  padding: 0.5rem;
+}
+
+.buttonOption .apNome {
+  width: 60%;
+}
+
+.buttonOption .apPreco {
+  background-color: var(--azul-base);
+  height: 100%;
+  width: 15%;
+  color: white;
+  text-align: center;
+}
+
+.buttonOption .apMessage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 25%;
+  height: 100%;
+  margin: 0 auto;
+
+  color: var(--whats);
+
+  transition: color 0.5s;
+}
+
+.apMessage::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  right: 100%;
+  transition: right 0.5s;
+
+  background-color: var(--whats);
+}
+
+.apMessage:hover::after {
+  right: 0;
+}
+
+.apMessage:hover {
+  color: white;
 }
 
 .obs {

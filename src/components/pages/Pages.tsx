@@ -123,8 +123,8 @@ function HomePage({ aviso }: PageProps) {
           <div className={styles.atracoes}>
             <h2>{t("page.home.enjoy")}</h2>
             <ul>
-              {Atracoes.map((atracao: string) => {
-                return <li>{atracao}</li>;
+              {Atracoes.map((atracao: string, index) => {
+                return <li key={index}>{atracao}</li>;
               })}
             </ul>
           </div>
@@ -285,7 +285,10 @@ function Acomodacoes({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
-        <EasyBooking apartamentosData={apartamentosData} />
+        <EasyBooking
+          apartamentosData={apartamentosData}
+          apartamentoSemServico={apartamentoSemServico}
+        />
 
         <p style={{ marginBottom: "3rem" }}>
           {t("page.booking.bookDisclaimer.part1")}
