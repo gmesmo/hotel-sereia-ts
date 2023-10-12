@@ -1,0 +1,157 @@
+.EasyBooking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 75%;
+  border: 2px solid var(--azul-base);
+
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+.EasyHeading {
+  width: 100%;
+  background-color: var(--azul-base);
+  color: white;
+
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+
+  font-family: var(--ff-text);
+}
+
+.SliderWrapper {
+  width: 50%;
+}
+
+.SliderWrapper label {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.DatesWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 50%;
+  padding: 0 1rem;
+}
+
+.DatesWrapper > div {
+  margin: 0.5rem;
+}
+
+.disc {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.Options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 80%;
+}
+
+.Options .buttonOption {
+  display: flex;
+  justify-content: space-between;
+
+  font-family: var(--ff-text);
+  font-size: 1rem;
+
+  background-color: transparent;
+  border: 2px solid var(--azul-base);
+  color: var(--azul-base);
+  font-weight: 700;
+  cursor: pointer;
+
+  width: 70%;
+}
+
+.buttonOption span {
+  padding: 0.5rem;
+}
+
+.buttonOption .apNome {
+  width: 60%;
+}
+
+.buttonOption .apPreco {
+  background-color: var(--azul-base);
+  height: 100%;
+  width: 15%;
+  color: white;
+  text-align: center;
+}
+
+.buttonOption .apMessage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 25%;
+  height: 100%;
+  margin: 0 auto;
+
+  color: var(--whats);
+
+  transition: color 0.5s;
+}
+
+.apMessage::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  right: 100%;
+  transition: right 0.5s;
+
+  background-color: var(--whats);
+}
+
+.apMessage:hover::after {
+  right: 0;
+}
+
+.apMessage:hover {
+  color: white;
+}
+
+.obs {
+  background-color: var(--azul-base);
+  color: white;
+  width: 100%;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+}
+
+@media only screen and (pointer: coarse) {
+  .EasyBooking {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  .DatesWrapper {
+    width: 100%;
+  }
+
+  .Options {
+    width: 100%;
+  }
+
+  .Options .buttonOption {
+    width: 90%;
+  }
+
+  .buttonOption svg {
+    display: none;
+  }
+}

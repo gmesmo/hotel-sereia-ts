@@ -14,6 +14,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
+import EasyBooking from "../easybooking/EasyBooking";
 
 const spanStyle: React.CSSProperties = {
   padding: "20px",
@@ -122,8 +123,8 @@ function HomePage({ aviso }: PageProps) {
           <div className={styles.atracoes}>
             <h2>{t("page.home.enjoy")}</h2>
             <ul>
-              {Atracoes.map((atracao: string) => {
-                return <li>{atracao}</li>;
+              {Atracoes.map((atracao: string, index) => {
+                return <li key={index}>{atracao}</li>;
               })}
             </ul>
           </div>
@@ -284,6 +285,11 @@ function Acomodacoes({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
+        <EasyBooking
+          apartamentosData={apartamentosData}
+          apartamentoSemServico={apartamentoSemServico}
+        />
+
         <p style={{ marginBottom: "3rem" }}>
           {t("page.booking.bookDisclaimer.part1")}
           <span className={styles.destaque}>20/12/2023</span>
@@ -316,6 +322,7 @@ function Acomodacoes({ aviso }: PageProps) {
             {apartamentosData.map((ap, index) => {
               return (
                 <tr
+                  key={`ap_${index}`}
                   className={
                     index % 2 === 0 ? `${styles.even}` : `${styles.odd}`
                   }
@@ -367,6 +374,7 @@ function Acomodacoes({ aviso }: PageProps) {
             {apartamentoSemServico.map((ap, index) => {
               return (
                 <tr
+                  key={`apSS_${index}`}
                   className={
                     index % 2 === 0 ? `${styles.even}` : `${styles.odd}`
                   }
@@ -397,7 +405,9 @@ function Acomodacoes({ aviso }: PageProps) {
 
         <table cellSpacing={0}>
           <thead>
-            <th colSpan={2}>{t("page.booking.headers.children")}</th>
+            <tr>
+              <th colSpan={2}>{t("page.booking.headers.children")}</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
