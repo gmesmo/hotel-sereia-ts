@@ -177,7 +177,8 @@ i18n
             location: "Cómo llegar",
             pictures: "Más fotos",
           },
-          disclaimer: "¡Regresamos el 10/10!",
+          disclaimer:
+            "Para Fin de Año y Carnaval, consulte precios y disponibilidad",
           page: {
             home: {
               title: "¡Bienvenido!",
