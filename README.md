@@ -14,6 +14,4 @@ Projeto para o Hotel Sereia, realizado em [React + Vite + TypeScript]
 
 - i18next: Tradução para espanhol, um dos públicos alvo da página
 
-### Ainda à implementar
-
 - Component "EasyBooking": Para possibilitar o usuário selecionar números de hospedes e encaminhar para conversa do WhatsApp.
