@@ -111,7 +111,8 @@ i18n
                 line3: "Vista Piscina",
                 line4: "Lateral Mar e Vista Serra",
                 line5: "Conjugado Vista Mar 1º Andar",
-                line6: "Conjugado Vista Mar, 02 banheiros com mini cozinha",
+                line6:
+                  "Conjugado térreo frente mar, 02 banheiros com mini cozinha",
                 line7: "Conjugado Vista Serra/Pátio com mini cozinha",
                 obs: "* Apto Simples com ventilador de teto. Demais aptos com ar-condicionado, sendo que nos conjugados o ar-condicionado (12.000 Btus) é em apenas um dos quartos e no outro quarto tem ventilador de teto.",
               },
@@ -121,7 +122,8 @@ i18n
                     "Preços em reais (R$) no apartamento com mini cozinha/por noite ",
                   part2: "SEM SERVIÇOS**",
                 },
-                line1: "Conjugado Vista Mar, 02 banheiros com mini cozinha",
+                line1:
+                  "Conjugado térreo frente mar, 02 banheiros com mini cozinha",
                 line2: "Conjugado Vista Serra/Pátio com mini cozinha",
                 obs: "* Não inclui café da manhã, roupas de cama e banho e serviço de limpeza diária ** Taxa de limpeza ao final da estadia R$ 180,00",
               },
@@ -264,7 +266,8 @@ i18n
                 line3: "Vista a la Piscina",
                 line4: "Lateral al Mar y Vista a la Sierra",
                 line5: "Conjunto Vista al Mar 1º Piso",
-                line6: "Conjunto Vista al Mar, 02 baños con cocina pequeña",
+                line6:
+                  "Conjunto en planta baja frente al mar, 02 baños con cocina pequeña",
                 line7: "Conjunto Vista a la Sierra/Patio con cocina pequeña",
                 obs: "* Apartamento Simple con ventilador de techo. En los demás apartamentos, hay aire acondicionado, siendo que en los conjuntos el aire acondicionado (12,000 BTU) está en solo una de las habitaciones y en la otra habitación hay un ventilador de techo.",
               },
@@ -274,7 +277,8 @@ i18n
                     "Precios en reales (R$) en el apartamento con cocina pequeña/por noche ",
                   part2: "SIN SERVICIOS**",
                 },
-                line1: "Conjunto Vista al Mar, 02 baños con cocina pequeña",
+                line1:
+                  "Conjunto en planta baja frente al mar, 02 baños con cocina pequeña",
                 line2: "Conjunto Vista a la Sierra/Patio con cocina pequeña",
                 obs: "* No incluye desayuno, ropa de cama y baño, y servicio de limpieza diaria ** Tarifa de limpieza al final de la estancia: R$ 180.00",
               },
