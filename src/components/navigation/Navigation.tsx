@@ -27,8 +27,8 @@ function Navigation() {
         {location.pathname !== "/" && (
           <Button text={t("navigation.home")} to="/" />
         )}
-        {location.pathname !== "/Acomodacoes" && (
-          <Button text={t("navigation.booking")} to="/Acomodacoes" />
+        {location.pathname !== "/Tarifas" && (
+          <Button text={t("navigation.booking")} to="/Tarifas" />
         )}
         {location.pathname !== "/Como_chegar" && (
           <Button text={t("navigation.location")} to="/Como_chegar" />

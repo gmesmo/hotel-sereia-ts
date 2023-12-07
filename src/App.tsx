@@ -32,7 +32,7 @@ function App() {
         <Social />
         <Routes>
           <Route path="/" element={<HomePage aviso={aviso} />} />
-          <Route path="/Acomodacoes" element={<Acomodacoes aviso={aviso} />} />
+          <Route path="/Tarifas" element={<Acomodacoes aviso={aviso} />} />
           <Route path="/Como_chegar" element={<ComoChegar aviso={aviso} />} />
           <Route path="/Mais_fotos" element={<MaisFotos aviso={aviso} />} />
           <Route path="*" element={<Error404 />} />

@@ -21,12 +21,11 @@ i18n
         translation: {
           navigation: {
             home: "Início",
-            booking: "Acomodações",
+            booking: "Tarifas",
             location: "Como chegar",
             pictures: "Mais fotos",
           },
-          disclaimer:
-            "Para Fim de Ano e Carnaval consulte valores e disponibilidade",
+          disclaimer: "Vagas para fim de ano esgotadas",
           page: {
             home: {
               title: "Bem vindo!",
@@ -65,7 +64,7 @@ i18n
               },
             },
             booking: {
-              title: "Acomodações",
+              title: "Tarifas",
               easyBooking: {
                 title: "Seletor Facilitado",
                 adults: "Número de adultos",
@@ -173,12 +172,11 @@ i18n
         translation: {
           navigation: {
             home: "Inicio",
-            booking: "Alojamiento",
+            booking: "Tarifas",
             location: "Cómo llegar",
             pictures: "Más fotos",
           },
-          disclaimer:
-            "Para Fin de Año y Carnaval, consulte precios y disponibilidad",
+          disclaimer: "Capacidad completa para el fin de año",
           page: {
             home: {
               title: "¡Bienvenido!",
@@ -218,7 +216,7 @@ i18n
               },
             },
             booking: {
-              title: "Alojamientos",
+              title: "Tarifas",
               easyBooking: {
                 title: "Selector Fácil",
                 adults: "Número de adultos",
