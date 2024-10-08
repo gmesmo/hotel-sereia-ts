@@ -185,7 +185,8 @@ i18n
             location: "Cómo llegar",
             pictures: "Más fotos",
           },
-          disclaimer: "Reservas para fin de año, mínimo 7 días.",
+          disclaimer:
+            "Para Fin de Año y Carnaval, consulte precios y disponibilidad",
           page: {
             home: {
               title: "¡Bienvenido!",
