@@ -1,9 +1,5 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+
 import {
   HomePage,
   Acomodacoes,
@@ -37,7 +33,6 @@ function App() {
           <Route path="/Como_chegar" element={<ComoChegar aviso={aviso} />} />
           <Route path="/Mais_fotos" element={<MaisFotos aviso={aviso} />} />
           <Route path="*" element={<Error404 />} />
-          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </div>
