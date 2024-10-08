@@ -16,7 +16,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
-
+import EasyBooking from "../easybooking/EasyBooking";
 import { Checkbox } from "@mui/material";
 
 const spanStyle: React.CSSProperties = {
@@ -444,6 +444,18 @@ function Acomodacoes({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
+        <EasyBooking
+          apartamentosData={
+            viewTemporada ? apartamentosDataAlta : apartamentosData
+          }
+          apartamentoSemServico={
+            viewTemporada ? apartamentoSemServicoAlta : apartamentoSemServico
+          }
+          inicioTemporada={inicioTemporada}
+          fimTemporada={fimTemporada}
+          viewTemporada={viewTemporada}
+        />
+
         <p style={{ marginBottom: "3rem" }}>
           {t("page.booking.bookDisclaimer.part1")}
           <span className={styles.destaque}>
