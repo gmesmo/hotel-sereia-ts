@@ -179,11 +179,16 @@ i18n
             pictures: "Más fotos",
           },
 <<<<<<< HEAD
+<<<<<<< HEAD
           disclaimer:
             "Para Fin de Año y Carnaval, consulte precios y disponibilidad",
 =======
           disclaimer: "Capacidad completa para el fin de año",
 >>>>>>> parent of 00e1fc7 (Adição tabela baixa/alta temporada com seletor e aviso)
+=======
+          disclaimer:
+            "Para Fin de Año y Carnaval, consulte precios y disponibilidad",
+>>>>>>> 969da8756115e3446152039669afb3665be1bf6d
           page: {
             home: {
               title: "¡Bienvenido!",

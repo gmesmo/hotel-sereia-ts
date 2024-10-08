@@ -15,6 +15,9 @@ import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 969da8756115e3446152039669afb3665be1bf6d
 
 import { Checkbox } from "@mui/material";
 =======
@@ -291,6 +294,7 @@ function Acomodacoes({ aviso }: PageProps) {
 
       <div className={styles.innerContent}>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <EasyBooking
           apartamentosData={apartamentosData}
@@ -298,6 +302,8 @@ function Acomodacoes({ aviso }: PageProps) {
         />
 
 >>>>>>> parent of 00e1fc7 (Adição tabela baixa/alta temporada com seletor e aviso)
+=======
+>>>>>>> 969da8756115e3446152039669afb3665be1bf6d
         <p style={{ marginBottom: "3rem" }}>
           {t("page.booking.bookDisclaimer.part1")}
           <span className={styles.destaque}>20/12/2023</span>
