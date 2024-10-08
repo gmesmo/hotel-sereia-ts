@@ -14,15 +14,9 @@ import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 969da8756115e3446152039669afb3665be1bf6d
 
 import { Checkbox } from "@mui/material";
-=======
 import EasyBooking from "../easybooking/EasyBooking";
->>>>>>> parent of 00e1fc7 (Adição tabela baixa/alta temporada com seletor e aviso)
 
 const spanStyle: React.CSSProperties = {
   padding: "20px",
@@ -293,17 +287,11 @@ function Acomodacoes({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         <EasyBooking
           apartamentosData={apartamentosData}
           apartamentoSemServico={apartamentoSemServico}
         />
 
->>>>>>> parent of 00e1fc7 (Adição tabela baixa/alta temporada com seletor e aviso)
-=======
->>>>>>> 969da8756115e3446152039669afb3665be1bf6d
         <p style={{ marginBottom: "3rem" }}>
           {t("page.booking.bookDisclaimer.part1")}
           <span className={styles.destaque}>20/12/2023</span>
