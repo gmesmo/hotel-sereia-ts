@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Slider from "@mui/material/Slider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -10,6 +10,7 @@ import "dayjs/locale/pt";
 import { ImWhatsapp } from "react-icons/im";
 import styles from "./EasyBooking.module.css";
 import dayjs, { Dayjs } from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 
@@ -18,6 +19,7 @@ import { useTranslation } from "react-i18next";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("America/Sao_Paulo");
+dayjs.extend(isBetween);
 interface Apartamento {
   nome: string;
   "1pessoa": string;
@@ -30,11 +32,17 @@ interface Apartamento {
 interface EasyBookingProps {
   apartamentosData: Apartamento[];
   apartamentoSemServico: Apartamento[];
+  inicioTemporada: Date;
+  fimTemporada: Date;
+  viewTemporada: boolean;
 }
 
 const EasyBooking: React.FC<EasyBookingProps> = ({
   apartamentosData,
   apartamentoSemServico,
+  inicioTemporada,
+  fimTemporada,
+  viewTemporada,
 }) => {
   const { t } = useTranslation();
 
@@ -45,6 +53,11 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
   const [segundaData, setSegundaData] = useState(
     dayjs().add(1, "day").startOf("day")
   );
+  let isSegundaDataChosen = false;
+
+  const inicioDayjs = inicioTemporada;
+  const fimDayjs = fimTemporada;
+
   const [diferenca, setDiferenca] = useState(
     segundaData.diff(primeiraData, "day")
   );
@@ -81,9 +94,18 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
       if (primeiraData.isValid() && novoValor.isValid()) {
         const dayDiff = novoValor.startOf("day").diff(primeiraData, "day"); // Configura também a primeira data no início do dia
         setDiferenca(dayDiff);
+        isSegundaDataChosen = true;
       }
     }
   };
+
+  useEffect(() => {
+    if (!isSegundaDataChosen) {
+      const novaSegundaData = primeiraData.add(1, "day").startOf("day");
+      setSegundaData(novaSegundaData);
+      setDiferenca(novaSegundaData.diff(primeiraData, "day")); // Atualiza a diferença também
+    }
+  }, [primeiraData]);
 
   const bookHandler = (
     apName: string,
@@ -163,6 +185,24 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
           />
         </LocalizationProvider>
       </div>
+
+      <p>
+        {
+          //Verifica se primeiraData está entre inicioDayjs e fimDayjs
+          ((primeiraData.isBetween(inicioDayjs, fimDayjs) ||
+            segundaData.isBetween(inicioDayjs, fimDayjs)) &&
+            !viewTemporada) ||
+            (!(
+              primeiraData.isBetween(inicioDayjs, fimDayjs) ||
+              segundaData.isBetween(inicioDayjs, fimDayjs)
+            ) &&
+              viewTemporada && (
+                <span style={{ color: "red" }}>
+                  {t("page.booking.easyBooking.differentPrices")}
+                </span>
+              ))
+        }
+      </p>
 
       <p>
         {t("page.booking.easyBooking.services")}

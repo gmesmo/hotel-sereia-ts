@@ -25,7 +25,7 @@ i18n
             location: "Como chegar",
             pictures: "Mais fotos",
           },
-          disclaimer: "Vagas para fim de ano esgotadas",
+          disclaimer: "Reservas para fim de ano, mínimo 7 dias",
           page: {
             home: {
               title: "Bem vindo!",
@@ -40,7 +40,7 @@ i18n
                 5: "Comodidade e tranquilidade em nosso belíssimo Litoral Gaúcho",
                 6: "Salas de estar com Tv",
                 7: "Sala de leitura com redes para descanso",
-                8: "Espaço com churrasqueira e jogos",
+                8: "Espaço com churrasqueira",
                 9: "Área verde para vôlei e futebol, espaço infantil",
                 10: "Pátio interno com bar, piscina aquecida adulto e infantil",
                 11: "Sauna",
@@ -73,6 +73,8 @@ i18n
                 selectDate: "Selecione o período",
                 firstDay: "Primeiro dia",
                 lastDay: "Último dia",
+                differentPrices:
+                  "A data selecionada não corresponde aos valores exibidos",
                 services: "Serviço incluso?",
                 garage: "Garagem coberta?",
                 book: "Reserve",
@@ -80,12 +82,16 @@ i18n
                 disclaimer: {
                   part1:
                     "Serviço: Café da manhã, roupas de cama e banho e serviço de limpeza diária",
-                  part2: "Taxa de limpeza ao final da estadia: R$ 180,00",
+                  part2: "Taxa de limpeza ao final da estadia: R$ 200,00",
                 },
               },
               bookDisclaimer: {
-                part1: "Valores válidos de ",
+                part1: "Valores Alta temporada válidos de ",
                 part2: " à ",
+                season: {
+                  low: "Você está vendo valores de baixa temporada.",
+                  high: "Você está vendo valores de alta temporada.",
+                },
               },
               info: "Para se informar sobre um apartamento clique no nome dele e nos mande um Whats!",
               pricesDisclaimer:
@@ -114,6 +120,7 @@ i18n
                   "Conjugado térreo frente mar, 02 banheiros com mini cozinha",
                 line7: "Conjugado Vista Serra/Pátio com mini cozinha",
                 obs: "* Apto Simples com ventilador de teto. Demais aptos com ar-condicionado, sendo que nos conjugados o ar-condicionado (12.000 Btus) é em apenas um dos quartos e no outro quarto tem ventilador de teto.",
+                obs2: "Reservas com antecedência para estadias de 5 dias",
               },
               table2: {
                 disclaimer: {
@@ -124,7 +131,7 @@ i18n
                 line1:
                   "Conjugado térreo frente mar, 02 banheiros com mini cozinha",
                 line2: "Conjugado Vista Serra/Pátio com mini cozinha",
-                obs: "* Não inclui café da manhã, roupas de cama e banho e serviço de limpeza diária ** Taxa de limpeza ao final da estadia R$ 180,00",
+                obs: "* Não inclui café da manhã, roupas de cama e banho e serviço de limpeza diária ** Taxa de limpeza ao final da estadia R$ 200,00",
               },
               table3: {
                 line1: {
@@ -178,7 +185,7 @@ i18n
             location: "Cómo llegar",
             pictures: "Más fotos",
           },
-          disclaimer: "Capacidad completa para el fin de año",
+          disclaimer: "Reservas para fin de año, mínimo 7 días.",
           page: {
             home: {
               title: "¡Bienvenido!",
@@ -193,7 +200,7 @@ i18n
                 5: "Comodidad y tranquilidad en nuestra hermosa costa de Rio Grande do Sul",
                 6: "Salas de estar con televisión",
                 7: "Sala de lectura con hamacas para descansar",
-                8: "Área con parrilla y juegos",
+                8: "Área con parrilla",
                 9: "Área verde para vóley y fútbol, espacio para niños",
                 10: "Patio interior con bar, piscina climatizada para adultos y niños",
                 11: "Sauna",
@@ -227,6 +234,8 @@ i18n
                 selectDate: "Selecione o período",
                 firstDay: "Primer día",
                 lastDay: "Último día",
+                differentPrices:
+                  "La fecha seleccionada no corresponde a los valores exibidos",
                 services: "¿Servicios incluidos?",
                 garage: "¿Cochera cubierta?",
                 book: "Reservar",
@@ -234,7 +243,7 @@ i18n
                 disclaimer: {
                   part1:
                     "Servicios: Desayuno, ropa de cama y baño y servicio de limpieza diario",
-                  part2: "Cargo de limpieza al final de la estadía: $180,00",
+                  part2: "Cargo de limpieza al final de la estadía: $200,00",
                 },
               },
               bookDisclaimer: {
@@ -268,6 +277,7 @@ i18n
                   "Conjunto en planta baja frente al mar, 02 baños con cocina pequeña",
                 line7: "Conjunto Vista a la Sierra/Patio con cocina pequeña",
                 obs: "* Apartamento Simple con ventilador de techo. En los demás apartamentos, hay aire acondicionado, siendo que en los conjuntos el aire acondicionado (12,000 BTU) está en solo una de las habitaciones y en la otra habitación hay un ventilador de techo.",
+                obs2: "Reservas con anticipación para estancias de 5 días",
               },
               table2: {
                 disclaimer: {
@@ -278,7 +288,7 @@ i18n
                 line1:
                   "Conjunto en planta baja frente al mar, 02 baños con cocina pequeña",
                 line2: "Conjunto Vista a la Sierra/Patio con cocina pequeña",
-                obs: "* No incluye desayuno, ropa de cama y baño, y servicio de limpieza diaria ** Tarifa de limpieza al final de la estancia: R$ 180.00",
+                obs: "* No incluye desayuno, ropa de cama y baño, y servicio de limpieza diaria ** Tarifa de limpieza al final de la estancia: R$ 200,00",
               },
               table3: {
                 line1: {
