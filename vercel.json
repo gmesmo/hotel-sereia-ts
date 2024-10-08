@@ -1,0 +1,9 @@
+{
+  "routes": [
+    { "src": "/", "dest": "/" },
+    { "src": "/Inicio", "dest": "/" },
+    { "src": "/Tarifas", "dest": "/Tarifas" },
+    { "src": "/Como_chegar", "dest": "/Como_chegar" },
+    { "src": "/Mais_fotos", "dest": "/Mais_fotos" }
+  ]
+}
