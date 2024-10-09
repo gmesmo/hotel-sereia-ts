@@ -6,7 +6,9 @@ const __dirname = new URL(".", import.meta.url).pathname;
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/",
   plugins: [react(), svgr()],
+
   build: {
     // lib: {
     //   entry: "../../index.html", // Ajuste aqui se necessário

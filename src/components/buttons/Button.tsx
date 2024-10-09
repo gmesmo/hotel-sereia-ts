@@ -1,5 +1,4 @@
 import { CSSProperties, MouseEvent, ReactNode } from "react";
-import { Link } from "react-router-dom";
 import styles from "./button.module.css";
 
 interface ButtonProps {
@@ -10,19 +9,17 @@ interface ButtonProps {
   customBg?: string;
 }
 
-function Button({ onClick, text, Icon, to }: ButtonProps) {
-  if (to) {
-    // Se a prop "to" estiver presente, renderize um Link do React Router
-    return (
-      <Link to={to}>
-        <button className={styles.main_link}>
-          {Icon}
-          {text}
-        </button>
-      </Link>
-    );
-  }
+function Button({ onClick, text, Icon }: ButtonProps) {
+  // Se a prop "to" estiver presente, renderize um Link do React Router
+  return (
+    <button className={styles.main_link} onClick={onClick}>
+      {Icon}
+      {text}
+    </button>
+  );
+}
 
+const LinkButton = ({ onClick, text, Icon }: ButtonProps) => {
   // Caso contrário, renderize um botão comum
   return (
     <button onClick={onClick} className={`${styles.main_link} ${styles.small}`}>
@@ -30,7 +27,7 @@ function Button({ onClick, text, Icon, to }: ButtonProps) {
       {text}
     </button>
   );
-}
+};
 
 function SocialButton({ onClick, Icon, customBg }: ButtonProps) {
   const estilo: CSSProperties = {
@@ -44,4 +41,4 @@ function SocialButton({ onClick, Icon, customBg }: ButtonProps) {
   );
 }
 
-export { Button, SocialButton };
+export { Button, LinkButton, SocialButton };

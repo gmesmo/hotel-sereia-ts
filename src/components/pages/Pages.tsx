@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
+
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
 import Line from "./line";
 import styles from "./pages.module.css";
-import { Button } from "../buttons/Button";
+import { LinkButton } from "../buttons/Button";
 
 import { ImWhatsapp } from "react-icons/im";
 import { BsPhoneFill } from "react-icons/bs";
@@ -11,10 +13,10 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 import EasyBooking from "../easybooking/EasyBooking";
+import { Checkbox } from "@mui/material";
 
 const spanStyle: React.CSSProperties = {
   padding: "20px",
@@ -152,7 +154,7 @@ function HomePage({ aviso }: PageProps) {
         <section>
           <h3>{t("page.home.findUs")}</h3>
           <div className={styles.buttonWrapper}>
-            <Button
+            <LinkButton
               text={"WhatsApp"}
               Icon={<ImWhatsapp />}
               onClick={() =>
@@ -161,12 +163,12 @@ function HomePage({ aviso }: PageProps) {
                 )
               }
             />
-            <Button
+            <LinkButton
               text={t("page.home.contacts.phone")}
               Icon={<BsPhoneFill />}
               onClick={() => buttonClickHandler("tel:51993383992")}
             />
-            <Button
+            <LinkButton
               text={t("page.home.contacts.location")}
               Icon={<FaMapMarkerAlt />}
               onClick={() =>
@@ -192,6 +194,12 @@ interface Apartamento {
 }
 
 function Acomodacoes({ aviso }: PageProps) {
+  const [temporada, setTemporada] = useState(false);
+  // Define dia de inicio da alta temporada como uma string formato dd/mm/yyyy
+  const inicioTemporada = new Date(2024, 11, 22);
+  const fimTemporada = new Date(2025, 1, 28);
+  const [viewTemporada, setViewTemporada] = useState(false);
+
   const { t } = useTranslation();
 
   const apartamentosData: Apartamento[] = [
@@ -272,9 +280,159 @@ function Acomodacoes({ aviso }: PageProps) {
     },
   ];
 
+  const apartamentosDataAlta: Apartamento[] = [
+    {
+      nome: t("page.booking.table.line1"),
+      "1pessoa": "190,00",
+      "2pessoas": "310,00",
+      "3pessoas": " - ",
+      "4pessoas": " - ",
+      "5pessoas": " - ",
+    },
+    {
+      nome: t("page.booking.table.line2"),
+      "1pessoa": "290,00",
+      "2pessoas": "380,00",
+      "3pessoas": " - ",
+      "4pessoas": " - ",
+      "5pessoas": " - ",
+    },
+    {
+      nome: t("page.booking.table.line3"),
+      "1pessoa": "270,00",
+      "2pessoas": "360,00",
+      "3pessoas": "460,00",
+      "4pessoas": " - ",
+      "5pessoas": " - ",
+    },
+    {
+      nome: t("page.booking.table.line4"),
+      "1pessoa": "280,00",
+      "2pessoas": "350,00",
+      "3pessoas": "460,00",
+      "4pessoas": " - ",
+      "5pessoas": " - ",
+    },
+    {
+      nome: t("page.booking.table.line5"),
+      "1pessoa": " - ",
+      "2pessoas": "390,00",
+      "3pessoas": "520,00",
+      "4pessoas": "590,00",
+      "5pessoas": " - ",
+    },
+    {
+      nome: t("page.booking.table.line6"),
+      "1pessoa": " - ",
+      "2pessoas": " - ",
+      "3pessoas": " - ",
+      "4pessoas": "610,00",
+      "5pessoas": "670,00",
+    },
+    {
+      nome: t("page.booking.table.line7"),
+      "1pessoa": " - ",
+      "2pessoas": "390,00",
+      "3pessoas": "520,00",
+      "4pessoas": "590,00",
+      "5pessoas": "650,00",
+    },
+  ];
+
+  const apartamentoSemServicoAlta: Apartamento[] = [
+    {
+      nome: t("page.booking.table2.line1"),
+      "1pessoa": " - ",
+      "2pessoas": " - ",
+      "3pessoas": " - ",
+      "4pessoas": "440,00",
+      "5pessoas": "480,00",
+    },
+    {
+      nome: t("page.booking.table2.line2"),
+      "1pessoa": " - ",
+      "2pessoas": "300,00",
+      "3pessoas": "370,00",
+      "4pessoas": "430,00",
+      "5pessoas": "450,00",
+    },
+  ];
+
   function apClickHandler(url: string) {
     window.open(url, "_blank", "noreferrer");
   }
+
+  const renderAPs = (apartamentos: Apartamento[]) => {
+    return (
+      <tbody>
+        {apartamentos.map((ap, index) => {
+          return (
+            <tr
+              key={`ap_${index}`}
+              className={index % 2 === 0 ? `${styles.even}` : `${styles.odd}`}
+            >
+              <td
+                className={styles.apNome}
+                onClick={() =>
+                  apClickHandler(
+                    `https://wa.me/555193383992?text=${t(
+                      "page.booking.customMessage"
+                    )} ${ap.nome}`
+                  )
+                }
+              >
+                {ap.nome}
+              </td>
+              <td>{ap["1pessoa"]}</td>
+              <td>{ap["2pessoas"]}</td>
+              <td>{ap["3pessoas"]}</td>
+              <td>{ap["4pessoas"]}</td>
+              <td>{ap["5pessoas"]}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    );
+  };
+
+  const renderAPSS = (apartamentos: Apartamento[]) => {
+    return (
+      <tbody>
+        {apartamentos.map((ap, index) => {
+          return (
+            <tr
+              key={`apSS_${index}`}
+              className={index % 2 === 0 ? `${styles.even}` : `${styles.odd}`}
+            >
+              <td
+                className={styles.apNome}
+                onClick={() =>
+                  apClickHandler(
+                    `https://wa.me/555193383992?text=Olá! Vim pelo site, gostaria de informações sobre o ${ap.nome} - sem serviços`
+                  )
+                }
+              >
+                {ap.nome}
+              </td>
+              <td>{ap["1pessoa"]}</td>
+              <td>{ap["2pessoas"]}</td>
+              <td>{ap["3pessoas"]}</td>
+              <td>{ap["4pessoas"]}</td>
+              <td>{ap["5pessoas"]}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    );
+  };
+
+  // Utilizar useEffect para definir setTemporada
+  useEffect(() => {
+    if (inicioTemporada <= new Date() && new Date() <= fimTemporada) {
+      setTemporada(true);
+      setViewTemporada(temporada);
+    }
+  }, []);
 
   return (
     <div className={styles.content}>
@@ -286,15 +444,42 @@ function Acomodacoes({ aviso }: PageProps) {
 
       <div className={styles.innerContent}>
         <EasyBooking
-          apartamentosData={apartamentosData}
-          apartamentoSemServico={apartamentoSemServico}
+          apartamentosData={
+            viewTemporada ? apartamentosDataAlta : apartamentosData
+          }
+          apartamentoSemServico={
+            viewTemporada ? apartamentoSemServicoAlta : apartamentoSemServico
+          }
+          inicioTemporada={inicioTemporada}
+          fimTemporada={fimTemporada}
+          viewTemporada={viewTemporada}
         />
 
         <p style={{ marginBottom: "3rem" }}>
           {t("page.booking.bookDisclaimer.part1")}
-          <span className={styles.destaque}>20/12/2023</span>
+          <span className={styles.destaque}>
+            {inicioTemporada.toLocaleDateString("pt-BR")}
+          </span>
           {t("page.booking.bookDisclaimer.part2")}
-          <span className={styles.destaque}>28/02/2024</span>
+          <span className={styles.destaque}>
+            {fimTemporada.toLocaleDateString("pt-BR")}
+          </span>
+        </p>
+
+        <p style={{ marginBottom: "3rem", fontWeight: "bold" }}>
+          <Checkbox
+            checked={viewTemporada}
+            onChange={() => setViewTemporada(!viewTemporada)}
+            sx={{
+              color: "var(--destaque)",
+              "&.Mui-checked": { color: "var(--destaque)" },
+            }}
+          />
+          <span className={styles.destaque}>
+            {viewTemporada
+              ? t("page.booking.bookDisclaimer.season.high")
+              : t("page.booking.bookDisclaimer.season.low")}
+          </span>
         </p>
 
         <p style={{ textAlign: "center", margin: "0 auto" }}>
@@ -318,38 +503,10 @@ function Acomodacoes({ aviso }: PageProps) {
               <th>{t("page.booking.headers.five")}</th>
             </tr>
           </thead>
-          <tbody>
-            {apartamentosData.map((ap, index) => {
-              return (
-                <tr
-                  key={`ap_${index}`}
-                  className={
-                    index % 2 === 0 ? `${styles.even}` : `${styles.odd}`
-                  }
-                >
-                  <td
-                    className={styles.apNome}
-                    onClick={() =>
-                      apClickHandler(
-                        `https://wa.me/555193383992?text=${t(
-                          "page.booking.customMessage"
-                        )} ${ap.nome}`
-                      )
-                    }
-                  >
-                    {ap.nome}
-                  </td>
-                  <td>{ap["1pessoa"]}</td>
-                  <td>{ap["2pessoas"]}</td>
-                  <td>{ap["3pessoas"]}</td>
-                  <td>{ap["4pessoas"]}</td>
-                  <td>{ap["5pessoas"]}</td>
-                </tr>
-              );
-            })}
-          </tbody>
+          {renderAPs(viewTemporada ? apartamentosDataAlta : apartamentosData)}
         </table>
         <span className={styles.observ}>{t("page.booking.table.obs")}</span>
+        <span className={styles.observ}>{t("page.booking.table.obs2")}</span>
 
         <Line />
 
@@ -370,34 +527,9 @@ function Acomodacoes({ aviso }: PageProps) {
               <th>{t("page.booking.headers.five")}</th>
             </tr>
           </thead>
-          <tbody>
-            {apartamentoSemServico.map((ap, index) => {
-              return (
-                <tr
-                  key={`apSS_${index}`}
-                  className={
-                    index % 2 === 0 ? `${styles.even}` : `${styles.odd}`
-                  }
-                >
-                  <td
-                    className={styles.apNome}
-                    onClick={() =>
-                      apClickHandler(
-                        `https://wa.me/555193383992?text=Olá! Vim pelo site, gostaria de informações sobre o ${ap.nome} - sem serviços`
-                      )
-                    }
-                  >
-                    {ap.nome}
-                  </td>
-                  <td>{ap["1pessoa"]}</td>
-                  <td>{ap["2pessoas"]}</td>
-                  <td>{ap["3pessoas"]}</td>
-                  <td>{ap["4pessoas"]}</td>
-                  <td>{ap["5pessoas"]}</td>
-                </tr>
-              );
-            })}
-          </tbody>
+          {renderAPSS(
+            viewTemporada ? apartamentoSemServicoAlta : apartamentoSemServico
+          )}
         </table>
         <span className={styles.observ}>{t("page.booking.table2.obs")}</span>
 
@@ -584,29 +716,4 @@ function MaisFotos({ aviso }: PageProps) {
   );
 }
 
-function Error404() {
-  return (
-    <div className={styles.content}>
-      <div id={styles.titleWrapper}>
-        <h2 id={styles.title}>OPS!</h2>
-      </div>
-      <div className={styles.innerContent} style={{ textAlign: "center" }}>
-        Parece que se perdeu, alguma coisa deu errado!
-        <p>
-          <Link
-            to="/"
-            style={{
-              color: "var(--destaque)",
-              fontWeight: "bold",
-              fontSize: "2rem",
-            }}
-          >
-            Clique aqui para voltar
-          </Link>
-        </p>
-      </div>
-    </div>
-  );
-}
-
-export { HomePage, Acomodacoes, ComoChegar, MaisFotos, Error404 };
+export { HomePage, Acomodacoes, ComoChegar, MaisFotos };
