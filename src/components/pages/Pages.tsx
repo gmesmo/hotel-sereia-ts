@@ -16,7 +16,7 @@ import "react-photo-view/dist/react-photo-view.css";
 
 import { useTranslation } from "react-i18next";
 
-import EasyBooking from "../easybooking/EasyBooking";
+import EasyBookingV2 from "../easybooking/EasyBookingV2";
 import { Checkbox } from "@mui/material";
 
 const spanStyle: React.CSSProperties = {
@@ -197,8 +197,8 @@ interface Apartamento {
 function Acomodacoes({ aviso }: PageProps) {
   const [temporada, setTemporada] = useState(false);
   // Define dia de inicio da alta temporada como uma string formato dd/mm/yyyy
-  const inicioTemporada = new Date(2024, 11, 22);
-  const fimTemporada = new Date(2025, 1, 28);
+  const inicioTemporada = new Date(2026, 11, 20);
+  const fimTemporada = new Date(2027, 1, 28);
   const [viewTemporada, setViewTemporada] = useState(false);
 
   const { t } = useTranslation();
@@ -284,42 +284,42 @@ function Acomodacoes({ aviso }: PageProps) {
   const apartamentosDataAlta: Apartamento[] = [
     {
       nome: t("page.booking.table.line1"),
-      "1pessoa": "190,00",
-      "2pessoas": "310,00",
+      "1pessoa": "210,00",
+      "2pessoas": "350,00",
       "3pessoas": " - ",
       "4pessoas": " - ",
       "5pessoas": " - ",
     },
     {
       nome: t("page.booking.table.line2"),
-      "1pessoa": "290,00",
-      "2pessoas": "380,00",
+      "1pessoa": "330,00",
+      "2pessoas": "430,00",
       "3pessoas": " - ",
       "4pessoas": " - ",
       "5pessoas": " - ",
     },
     {
       nome: t("page.booking.table.line3"),
-      "1pessoa": "270,00",
-      "2pessoas": "360,00",
-      "3pessoas": "460,00",
+      "1pessoa": "300,00",
+      "2pessoas": "410,00",
+      "3pessoas": "540,00",
       "4pessoas": " - ",
       "5pessoas": " - ",
     },
     {
       nome: t("page.booking.table.line4"),
-      "1pessoa": "280,00",
-      "2pessoas": "350,00",
-      "3pessoas": "460,00",
+      "1pessoa": "320,00",
+      "2pessoas": "400,00",
+      "3pessoas": "540,00",
       "4pessoas": " - ",
       "5pessoas": " - ",
     },
     {
       nome: t("page.booking.table.line5"),
       "1pessoa": " - ",
-      "2pessoas": "390,00",
-      "3pessoas": "520,00",
-      "4pessoas": "590,00",
+      "2pessoas": "450,00",
+      "3pessoas": "600,00",
+      "4pessoas": "680,00",
       "5pessoas": " - ",
     },
     {
@@ -327,16 +327,16 @@ function Acomodacoes({ aviso }: PageProps) {
       "1pessoa": " - ",
       "2pessoas": " - ",
       "3pessoas": " - ",
-      "4pessoas": "610,00",
-      "5pessoas": "670,00",
+      "4pessoas": "700,00",
+      "5pessoas": "770,00",
     },
     {
       nome: t("page.booking.table.line7"),
       "1pessoa": " - ",
-      "2pessoas": "390,00",
-      "3pessoas": "520,00",
-      "4pessoas": "590,00",
-      "5pessoas": "650,00",
+      "2pessoas": "440,00",
+      "3pessoas": "600,00",
+      "4pessoas": "680,00",
+      "5pessoas": "750,00",
     },
   ];
 
@@ -346,16 +346,16 @@ function Acomodacoes({ aviso }: PageProps) {
       "1pessoa": " - ",
       "2pessoas": " - ",
       "3pessoas": " - ",
-      "4pessoas": "440,00",
-      "5pessoas": "480,00",
+      "4pessoas": "550,00",
+      "5pessoas": "580,00",
     },
     {
       nome: t("page.booking.table2.line2"),
       "1pessoa": " - ",
-      "2pessoas": "300,00",
-      "3pessoas": "370,00",
-      "4pessoas": "430,00",
-      "5pessoas": "450,00",
+      "2pessoas": "370,00",
+      "3pessoas": "460,00",
+      "4pessoas": "480,00",
+      "5pessoas": "500,00",
     },
   ];
 
@@ -444,16 +444,13 @@ function Acomodacoes({ aviso }: PageProps) {
       {aviso.length > 0 && <div className={styles.aviso}>{aviso}</div>}
 
       <div className={styles.innerContent}>
-        <EasyBooking
-          apartamentosData={
-            viewTemporada ? apartamentosDataAlta : apartamentosData
-          }
-          apartamentoSemServico={
-            viewTemporada ? apartamentoSemServicoAlta : apartamentoSemServico
-          }
+        <EasyBookingV2
+          apartamentosDataBaixa={apartamentosData}
+          apartamentosDataAlta={apartamentosDataAlta}
+          apartamentoSemServicoBaixa={apartamentoSemServico}
+          apartamentoSemServicoAlta={apartamentoSemServicoAlta}
           inicioTemporada={inicioTemporada}
           fimTemporada={fimTemporada}
-          viewTemporada={viewTemporada}
         />
 
         <p style={{ marginBottom: "3rem" }}>

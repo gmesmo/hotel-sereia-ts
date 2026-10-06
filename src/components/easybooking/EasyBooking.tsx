@@ -116,11 +116,9 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
     servico: boolean,
     garagem: boolean
   ) => {
-    const message = `Olá! Gostaria de fazer uma reserva para%0A*${apName}*%0APara ${pessoasNum} pessoa(s) ${
-      crianca > 0 ? ` e ${crianca} crianca(s)` : ""
-    }%0A%0APeríodo:%0AInício: ${data1}%0AFim: ${data2}%0A%0A${
-      servico ? `Com Serviço` : `Sem Serviço`
-    }%0A${garagem ? `Com Garagem` : `Sem Garagem`}
+    const message = `Olá! Gostaria de fazer uma reserva para%0A*${apName}*%0APara ${pessoasNum} pessoa(s) ${crianca > 0 ? ` e ${crianca} crianca(s)` : ""
+      }%0A%0APeríodo:%0AInício: ${data1}%0AFim: ${data2}%0A%0A${servico ? `Com Serviço` : `Sem Serviço`
+      }%0A${garagem ? `Com Garagem` : `Sem Garagem`}
     `;
 
     const url = `https://wa.me/555193383992?text=${message}`;
@@ -192,15 +190,15 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
           ((primeiraData.isBetween(inicioDayjs, fimDayjs) ||
             segundaData.isBetween(inicioDayjs, fimDayjs)) &&
             !viewTemporada) ||
-            (!(
-              primeiraData.isBetween(inicioDayjs, fimDayjs) ||
-              segundaData.isBetween(inicioDayjs, fimDayjs)
-            ) &&
-              viewTemporada && (
-                <span style={{ color: "red" }}>
-                  {t("page.booking.easyBooking.differentPrices")}
-                </span>
-              ))
+          (!(
+            primeiraData.isBetween(inicioDayjs, fimDayjs) ||
+            segundaData.isBetween(inicioDayjs, fimDayjs)
+          ) &&
+            viewTemporada && (
+              <span style={{ color: "red" }}>
+                {t("page.booking.easyBooking.differentPrices")}
+              </span>
+            ))
         }
       </p>
 
@@ -243,14 +241,14 @@ const EasyBooking: React.FC<EasyBookingProps> = ({
 
             const desconto =
               (parseFloat(ap[key as keyof Apartamento]) +
-                (isGaragem ? 30 : 0)) *
+                (isGaragem ? 40 : 0)) *
               diferenca *
               (disc / 100);
 
             const valorFinal =
               (parseFloat(ap[key as keyof Apartamento]) +
-                (isGaragem ? 30 : 0)) *
-                diferenca -
+                (isGaragem ? 40 : 0)) *
+              diferenca -
               desconto;
 
             if (ap[key as keyof Apartamento] !== " - ") {

@@ -25,7 +25,7 @@ i18n
             location: "Como chegar",
             pictures: "Mais fotos",
           },
-          disclaimer: "Reservas para fim de ano, mínimo 7 dias",
+          disclaimer: "Pacotes de 4 à 5 dias no Natal e 7 dias no Ano Novo. Consulte valores via WhatsApp!",
           page: {
             home: {
               title: "Bem vindo!",
@@ -83,6 +83,47 @@ i18n
                   part1:
                     "Serviço: Café da manhã, roupas de cama e banho e serviço de limpeza diária",
                   part2: "Taxa de limpeza ao final da estadia: R$ 200,00",
+                },
+                season: {
+                  nightSelected: "{{count}} diária selecionada",
+                  nightsSelected: "{{count}} diárias selecionadas",
+                  badgeMixed: "Período Misto",
+                  badgeHigh: "Alta Temporada",
+                  badgeLow: "Baixa Temporada",
+                  detailsMixed:
+                    "O cálculo aplica automaticamente as tarifas correspondentes: {{low}} diária(s) de baixa + {{high}} diária(s) de alta temporada.",
+                  detailsHigh:
+                    "Período de verão e alta temporada: todas as {{high}} diárias já foram calculadas com as tarifas da alta temporada.",
+                  detailsLow:
+                    "Período de baixa temporada: tarifas econômicas padrão aplicadas para as {{low}} diárias.",
+                },
+                card: {
+                  total: "total",
+                  night: "diária",
+                  nights: "diárias",
+                },
+                whatsapp: {
+                  greeting: "Olá! Gostaria de fazer uma reserva pelo site:",
+                  guests: "Hóspedes:",
+                  adult: "adulto",
+                  adults: "adultos",
+                  child: "criança",
+                  children: "crianças",
+                  and: "e",
+                  period: "Período:",
+                  to: "a",
+                  night: "diária",
+                  nights: "diárias",
+                  type: "Tipo:",
+                  seasonMixed:
+                    "Temporada Mista: {{low}} diária(s) baixa + {{high}} diária(s) alta temporada",
+                  seasonHigh: "Alta Temporada ({{high}} diária(s))",
+                  seasonLow: "Baixa Temporada ({{low}} diária(s))",
+                  withService: "Com Serviço",
+                  withoutService: "Sem Serviço",
+                  withGarage: "Com Garagem",
+                  withoutGarage: "Sem Garagem",
+                  estimatedTotal: "Valor estimado total:",
                 },
               },
               bookDisclaimer: {
@@ -148,7 +189,7 @@ i18n
                     "03 Crianças desconto de 20% aplicado ao número total de pessoas",
                 },
               },
-              garage: "Taxa de Garagem coberta: R$ 30,00 a diária",
+              garage: "Taxa de Garagem coberta: R$ 40,00 a diária",
               customMessage:
                 "Olá! Vim pelo site, gostaria de informações sobre o ",
             },
@@ -185,7 +226,7 @@ i18n
             location: "Cómo llegar",
             pictures: "Más fotos",
           },
-          disclaimer: "Capacidad completa para el fin de año",
+          disclaimer: "Paquetes de 4 a 5 días en Navidad y 7 días en Año Nuevo. ¡Consulte los precios vía WhatsApp!",
           page: {
             home: {
               title: "¡Bienvenido!",
@@ -244,6 +285,47 @@ i18n
                   part1:
                     "Servicios: Desayuno, ropa de cama y baño y servicio de limpieza diario",
                   part2: "Cargo de limpieza al final de la estadía: $200,00",
+                },
+                season: {
+                  nightSelected: "{{count}} noche seleccionada",
+                  nightsSelected: "{{count}} noches seleccionadas",
+                  badgeMixed: "Período Mixto",
+                  badgeHigh: "Alta Temporada",
+                  badgeLow: "Baja Temporada",
+                  detailsMixed:
+                    "El cálculo aplica automáticamente las tarifas correspondientes: {{low}} noche(s) de baja + {{high}} noche(s) de alta temporada.",
+                  detailsHigh:
+                    "Período de verano y alta temporada: todas las {{high}} noches ya fueron calculadas con las tarifas de alta temporada.",
+                  detailsLow:
+                    "Período de baja temporada: tarifas económicas estándar aplicadas para las {{low}} noches.",
+                },
+                card: {
+                  total: "total",
+                  night: "noche",
+                  nights: "noches",
+                },
+                whatsapp: {
+                  greeting: "¡Hola! Me gustaría hacer una reserva por el sitio web:",
+                  guests: "Huéspedes:",
+                  adult: "adulto",
+                  adults: "adultos",
+                  child: "niño",
+                  children: "niños",
+                  and: "y",
+                  period: "Período:",
+                  to: "al",
+                  night: "noche",
+                  nights: "noches",
+                  type: "Tipo:",
+                  seasonMixed:
+                    "Temporada Mixta: {{low}} noche(s) baja + {{high}} noche(s) alta temporada",
+                  seasonHigh: "Alta Temporada ({{high}} noche(s))",
+                  seasonLow: "Baja Temporada ({{low}} noche(s))",
+                  withService: "Con Servicio",
+                  withoutService: "Sin Servicio",
+                  withGarage: "Con Cochera",
+                  withoutGarage: "Sin Cochera",
+                  estimatedTotal: "Valor estimado total:",
                 },
               },
               bookDisclaimer: {
@@ -309,7 +391,7 @@ i18n
                     "03 Niños: 20% de descuento aplicado al número total de personas",
                 },
               },
-              garage: "Tarifa de Cochera Cubierta: R$ 30,00 por día",
+              garage: "Tarifa de Cochera Cubierta: R$ 40,00 por día",
               customMessage:
                 "¡Hola! Llegué al sitio web, me gustaría obtener información sobre el ",
             },

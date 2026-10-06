@@ -1,0 +1,301 @@
+.EasyBooking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 75%;
+  border: 2px solid var(--azul-base);
+
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  /* border-radius: 8px; */
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.EasyHeading {
+  width: 100%;
+  background-color: var(--azul-base);
+  color: white;
+
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+
+  font-family: var(--ff-text);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.SliderWrapper {
+  width: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.SliderWrapper label {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.DatesWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 60%;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.DatesWrapper>div {
+  margin: 0.5rem;
+  flex: 1;
+}
+
+.disc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.25rem;
+}
+
+/* Season Info & Summary Card */
+.seasonInfoCard {
+  width: 75%;
+  margin: 0.5rem auto 1.5rem auto;
+  padding: 0.9rem 1.3rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-family: var(--ff-text);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.seasonInfoCard.lowSeason {
+  background: linear-gradient(135deg, #f0fdf4 0%, #e8f9ef 100%);
+  border: 1px solid #86efac;
+  color: #166534;
+}
+
+.seasonInfoCard.highSeason {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1px solid #fcd34d;
+  color: #92400e;
+}
+
+.seasonInfoCard.mixedSeason {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1px solid #7dd3fc;
+  color: #0369a1;
+}
+
+.seasonHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.seasonBadge {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.seasonBadgeLow {
+  background-color: #10b981;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(16, 185, 129, 0.25);
+}
+
+.seasonBadgeHigh {
+  background-color: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(245, 158, 11, 0.3);
+}
+
+.seasonBadgeMixed {
+  background-color: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(2, 132, 199, 0.25);
+}
+
+.seasonDetails {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.switchesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.switchItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.Options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.Options .buttonOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: var(--ff-text);
+  font-size: 1rem;
+
+  background-color: #ffffff;
+  border: 2px solid var(--azul-base);
+  /* border-radius: 6px; */
+  color: var(--azul-base);
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+
+  width: 85%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Options .buttonOption:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(21, 101, 175, 0.2);
+}
+
+.buttonOption span {
+  padding: 0.75rem 1rem;
+}
+
+.buttonOption .apNome {
+  flex: 1;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.buttonOption .apPrecoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--azul-base);
+  color: white;
+  min-width: 140px;
+  padding: 0.5rem 0.8rem;
+}
+
+.buttonOption .apPreco {
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0;
+}
+
+.buttonOption .apSubinfo {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  font-weight: 400;
+  padding: 0;
+}
+
+.buttonOption .apMessage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  min-width: 130px;
+  height: 100%;
+
+  color: var(--whats);
+  background-color: #f9fbfd;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.apMessage:hover {
+  background-color: var(--whats);
+  color: white;
+}
+
+.obs {
+  background-color: var(--azul-base);
+  color: white;
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .EasyBooking {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  .SliderWrapper {
+    width: 85%;
+  }
+
+  .DatesWrapper {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .seasonInfoCard {
+    width: 90%;
+  }
+
+  .switchesContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .Options {
+    width: 100%;
+  }
+
+  .Options .buttonOption {
+    width: 95%;
+    flex-direction: column;
+  }
+
+  .buttonOption .apNome {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .buttonOption .apPrecoContainer {
+    width: 100%;
+  }
+
+  .buttonOption .apMessage {
+    width: 100%;
+    padding: 0.6rem;
+  }
+}
